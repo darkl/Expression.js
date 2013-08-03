@@ -127,45 +127,11 @@ function assign2x1(left, right) {
 }
 assign2x1.prototype = Object.create(binaryExpression.prototype);
 
-function makeBinary3x1(binaryType, left, right) {
-    this.binaryType = binaryType;
-    this.left = left;
-    this.right = right;
-}
-makeBinary3x1.prototype = Object.create(binaryExpression.prototype);
-
-function makeBinary5x1(binaryType, left, right, liftToNull, method) {
-    this.binaryType = binaryType;
-    this.left = left;
-    this.right = right;
-    this.liftToNull = liftToNull;
-    this.method = method;
-}
-makeBinary5x1.prototype = Object.create(binaryExpression.prototype);
-
-function makeBinary6x1(binaryType, left, right, liftToNull, method, conversion) {
-    this.binaryType = binaryType;
-    this.left = left;
-    this.right = right;
-    this.liftToNull = liftToNull;
-    this.method = method;
-    this.conversion = conversion;
-}
-makeBinary6x1.prototype = Object.create(binaryExpression.prototype);
-
 function equal2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 equal2x1.prototype = Object.create(binaryExpression.prototype);
-
-function equal4x1(left, right, liftToNull, method) {
-    this.left = left;
-    this.right = right;
-    this.liftToNull = liftToNull;
-    this.method = method;
-}
-equal4x1.prototype = Object.create(binaryExpression.prototype);
 
 function referenceEqual2x1(left, right) {
     this.left = left;
@@ -179,14 +145,6 @@ function notEqual2x1(left, right) {
 }
 notEqual2x1.prototype = Object.create(binaryExpression.prototype);
 
-function notEqual4x1(left, right, liftToNull, method) {
-    this.left = left;
-    this.right = right;
-    this.liftToNull = liftToNull;
-    this.method = method;
-}
-notEqual4x1.prototype = Object.create(binaryExpression.prototype);
-
 function referenceNotEqual2x1(left, right) {
     this.left = left;
     this.right = right;
@@ -199,27 +157,11 @@ function greaterThan2x1(left, right) {
 }
 greaterThan2x1.prototype = Object.create(binaryExpression.prototype);
 
-function greaterThan4x1(left, right, liftToNull, method) {
-    this.left = left;
-    this.right = right;
-    this.liftToNull = liftToNull;
-    this.method = method;
-}
-greaterThan4x1.prototype = Object.create(binaryExpression.prototype);
-
 function lessThan2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 lessThan2x1.prototype = Object.create(binaryExpression.prototype);
-
-function lessThan4x1(left, right, liftToNull, method) {
-    this.left = left;
-    this.right = right;
-    this.liftToNull = liftToNull;
-    this.method = method;
-}
-lessThan4x1.prototype = Object.create(binaryExpression.prototype);
 
 function greaterThanOrEqual2x1(left, right) {
     this.left = left;
@@ -227,27 +169,11 @@ function greaterThanOrEqual2x1(left, right) {
 }
 greaterThanOrEqual2x1.prototype = Object.create(binaryExpression.prototype);
 
-function greaterThanOrEqual4x1(left, right, liftToNull, method) {
-    this.left = left;
-    this.right = right;
-    this.liftToNull = liftToNull;
-    this.method = method;
-}
-greaterThanOrEqual4x1.prototype = Object.create(binaryExpression.prototype);
-
 function lessThanOrEqual2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 lessThanOrEqual2x1.prototype = Object.create(binaryExpression.prototype);
-
-function lessThanOrEqual4x1(left, right, liftToNull, method) {
-    this.left = left;
-    this.right = right;
-    this.liftToNull = liftToNull;
-    this.method = method;
-}
-lessThanOrEqual4x1.prototype = Object.create(binaryExpression.prototype);
 
 function andAlso2x1(left, right) {
     this.left = left;
@@ -255,25 +181,11 @@ function andAlso2x1(left, right) {
 }
 andAlso2x1.prototype = Object.create(binaryExpression.prototype);
 
-function andAlso3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-andAlso3x1.prototype = Object.create(binaryExpression.prototype);
-
 function orElse2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 orElse2x1.prototype = Object.create(binaryExpression.prototype);
-
-function orElse3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-orElse3x1.prototype = Object.create(binaryExpression.prototype);
 
 function coalesce2x1(left, right) {
     this.left = left;
@@ -294,33 +206,11 @@ function add2x1(left, right) {
 }
 add2x1.prototype = Object.create(binaryExpression.prototype);
 
-function add3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-add3x1.prototype = Object.create(binaryExpression.prototype);
-
 function addAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 addAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function addAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-addAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function addAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-addAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function addAssignChecked2x1(left, right) {
     this.left = left;
@@ -328,33 +218,11 @@ function addAssignChecked2x1(left, right) {
 }
 addAssignChecked2x1.prototype = Object.create(binaryExpression.prototype);
 
-function addAssignChecked3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-addAssignChecked3x1.prototype = Object.create(binaryExpression.prototype);
-
-function addAssignChecked4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-addAssignChecked4x1.prototype = Object.create(binaryExpression.prototype);
-
 function addChecked2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 addChecked2x1.prototype = Object.create(binaryExpression.prototype);
-
-function addChecked3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-addChecked3x1.prototype = Object.create(binaryExpression.prototype);
 
 function subtract2x1(left, right) {
     this.left = left;
@@ -362,33 +230,11 @@ function subtract2x1(left, right) {
 }
 subtract2x1.prototype = Object.create(binaryExpression.prototype);
 
-function subtract3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-subtract3x1.prototype = Object.create(binaryExpression.prototype);
-
 function subtractAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 subtractAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function subtractAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-subtractAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function subtractAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-subtractAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function subtractAssignChecked2x1(left, right) {
     this.left = left;
@@ -396,33 +242,11 @@ function subtractAssignChecked2x1(left, right) {
 }
 subtractAssignChecked2x1.prototype = Object.create(binaryExpression.prototype);
 
-function subtractAssignChecked3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-subtractAssignChecked3x1.prototype = Object.create(binaryExpression.prototype);
-
-function subtractAssignChecked4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-subtractAssignChecked4x1.prototype = Object.create(binaryExpression.prototype);
-
 function subtractChecked2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 subtractChecked2x1.prototype = Object.create(binaryExpression.prototype);
-
-function subtractChecked3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-subtractChecked3x1.prototype = Object.create(binaryExpression.prototype);
 
 function divide2x1(left, right) {
     this.left = left;
@@ -430,33 +254,11 @@ function divide2x1(left, right) {
 }
 divide2x1.prototype = Object.create(binaryExpression.prototype);
 
-function divide3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-divide3x1.prototype = Object.create(binaryExpression.prototype);
-
 function divideAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 divideAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function divideAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-divideAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function divideAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-divideAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function modulo2x1(left, right) {
     this.left = left;
@@ -464,33 +266,11 @@ function modulo2x1(left, right) {
 }
 modulo2x1.prototype = Object.create(binaryExpression.prototype);
 
-function modulo3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-modulo3x1.prototype = Object.create(binaryExpression.prototype);
-
 function moduloAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 moduloAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function moduloAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-moduloAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function moduloAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-moduloAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function multiply2x1(left, right) {
     this.left = left;
@@ -498,33 +278,11 @@ function multiply2x1(left, right) {
 }
 multiply2x1.prototype = Object.create(binaryExpression.prototype);
 
-function multiply3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-multiply3x1.prototype = Object.create(binaryExpression.prototype);
-
 function multiplyAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 multiplyAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function multiplyAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-multiplyAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function multiplyAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-multiplyAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function multiplyAssignChecked2x1(left, right) {
     this.left = left;
@@ -532,33 +290,11 @@ function multiplyAssignChecked2x1(left, right) {
 }
 multiplyAssignChecked2x1.prototype = Object.create(binaryExpression.prototype);
 
-function multiplyAssignChecked3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-multiplyAssignChecked3x1.prototype = Object.create(binaryExpression.prototype);
-
-function multiplyAssignChecked4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-multiplyAssignChecked4x1.prototype = Object.create(binaryExpression.prototype);
-
 function multiplyChecked2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 multiplyChecked2x1.prototype = Object.create(binaryExpression.prototype);
-
-function multiplyChecked3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-multiplyChecked3x1.prototype = Object.create(binaryExpression.prototype);
 
 function leftShift2x1(left, right) {
     this.left = left;
@@ -566,33 +302,11 @@ function leftShift2x1(left, right) {
 }
 leftShift2x1.prototype = Object.create(binaryExpression.prototype);
 
-function leftShift3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-leftShift3x1.prototype = Object.create(binaryExpression.prototype);
-
 function leftShiftAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 leftShiftAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function leftShiftAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-leftShiftAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function leftShiftAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-leftShiftAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function rightShift2x1(left, right) {
     this.left = left;
@@ -600,33 +314,11 @@ function rightShift2x1(left, right) {
 }
 rightShift2x1.prototype = Object.create(binaryExpression.prototype);
 
-function rightShift3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-rightShift3x1.prototype = Object.create(binaryExpression.prototype);
-
 function rightShiftAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 rightShiftAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function rightShiftAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-rightShiftAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function rightShiftAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-rightShiftAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function and2x1(left, right) {
     this.left = left;
@@ -634,33 +326,11 @@ function and2x1(left, right) {
 }
 and2x1.prototype = Object.create(binaryExpression.prototype);
 
-function and3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-and3x1.prototype = Object.create(binaryExpression.prototype);
-
 function andAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 andAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function andAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-andAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function andAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-andAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function or2x1(left, right) {
     this.left = left;
@@ -668,33 +338,11 @@ function or2x1(left, right) {
 }
 or2x1.prototype = Object.create(binaryExpression.prototype);
 
-function or3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-or3x1.prototype = Object.create(binaryExpression.prototype);
-
 function orAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 orAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function orAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-orAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function orAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-orAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function exclusiveOr2x1(left, right) {
     this.left = left;
@@ -702,33 +350,11 @@ function exclusiveOr2x1(left, right) {
 }
 exclusiveOr2x1.prototype = Object.create(binaryExpression.prototype);
 
-function exclusiveOr3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-exclusiveOr3x1.prototype = Object.create(binaryExpression.prototype);
-
 function exclusiveOrAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 exclusiveOrAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function exclusiveOrAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-exclusiveOrAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function exclusiveOrAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-exclusiveOrAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function power2x1(left, right) {
     this.left = left;
@@ -736,33 +362,11 @@ function power2x1(left, right) {
 }
 power2x1.prototype = Object.create(binaryExpression.prototype);
 
-function power3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-power3x1.prototype = Object.create(binaryExpression.prototype);
-
 function powerAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 powerAssign2x1.prototype = Object.create(binaryExpression.prototype);
-
-function powerAssign3x1(left, right, method) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-}
-powerAssign3x1.prototype = Object.create(binaryExpression.prototype);
-
-function powerAssign4x1(left, right, method, conversion) {
-    this.left = left;
-    this.right = right;
-    this.method = method;
-    this.conversion = conversion;
-}
-powerAssign4x1.prototype = Object.create(binaryExpression.prototype);
 
 function arrayIndex2x1(array, index) {
     this.array = array;
@@ -879,37 +483,18 @@ function property3x1(instance, propertyName, theArguments) {
 }
 property3x1.prototype = Object.create(indexExpression.prototype);
 
-function property3x2(instance, indexer, theArguments) {
-    this.instance = instance;
-    this.indexer = indexer;
-    this.arguments = theArguments;
-}
-property3x2.prototype = Object.create(indexExpression.prototype);
-
-function property3x3(expression, type, propertyName) {
+function property3x2(expression, type, propertyName) {
     this.expression = expression;
     this.type = type;
     this.propertyName = propertyName;
 }
-property3x3.prototype = Object.create(memberExpression.prototype);
+property3x2.prototype = Object.create(memberExpression.prototype);
 
 function property2x1(expression, propertyName) {
     this.expression = expression;
     this.propertyName = propertyName;
 }
 property2x1.prototype = Object.create(memberExpression.prototype);
-
-function property2x2(expression, property) {
-    this.expression = expression;
-    this.property = property;
-}
-property2x2.prototype = Object.create(memberExpression.prototype);
-
-function property2x3(expression, propertyAccessor) {
-    this.expression = expression;
-    this.propertyAccessor = propertyAccessor;
-}
-property2x3.prototype = Object.create(memberExpression.prototype);
 
 function invoke2x1(expression, theArguments) {
     this.expression = expression;
@@ -951,29 +536,16 @@ function listInit2x1(newExpression, initializers) {
 }
 listInit2x1.prototype = Object.create(listInitExpression.prototype);
 
-function listInit3x1(newExpression, addMethod, initializers) {
-    this.newExpression = newExpression;
-    this.addMethod = addMethod;
-    this.initializers = initializers;
-}
-listInit3x1.prototype = Object.create(listInitExpression.prototype);
-
 function loop1x1(body) {
     this.body = body;
 }
 loop1x1.prototype = Object.create(loopExpression.prototype);
 
-function field2x1(expression, field) {
-    this.expression = expression;
-    this.field = field;
-}
-field2x1.prototype = Object.create(memberExpression.prototype);
-
-function field2x2(expression, fieldName) {
+function field2x1(expression, fieldName) {
     this.expression = expression;
     this.fieldName = fieldName;
 }
-field2x2.prototype = Object.create(memberExpression.prototype);
+field2x1.prototype = Object.create(memberExpression.prototype);
 
 function field3x1(expression, type, fieldName) {
     this.expression = expression;
@@ -988,103 +560,21 @@ function propertyOrField2x1(expression, propertyOrFieldName) {
 }
 propertyOrField2x1.prototype = Object.create(memberExpression.prototype);
 
-function makeMemberAccess2x1(expression, member) {
-    this.expression = expression;
-    this.member = member;
-}
-makeMemberAccess2x1.prototype = Object.create(memberExpression.prototype);
-
-function call2x1(method, arg0) {
-    this.method = method;
-    this.arg0 = arg0;
-}
-call2x1.prototype = Object.create(methodCallExpression.prototype);
-
-function call2x2(method, theArguments) {
-    this.method = method;
-    this.arguments = theArguments;
-}
-call2x2.prototype = Object.create(methodCallExpression.prototype);
-
-function call2x3(instance, method) {
-    this.instance = instance;
-    this.method = method;
-}
-call2x3.prototype = Object.create(methodCallExpression.prototype);
-
-function call3x1(method, arg0, arg1) {
-    this.method = method;
-    this.arg0 = arg0;
-    this.arg1 = arg1;
-}
-call3x1.prototype = Object.create(methodCallExpression.prototype);
-
-function call3x2(instance, method, theArguments) {
-    this.instance = instance;
-    this.method = method;
-    this.arguments = theArguments;
-}
-call3x2.prototype = Object.create(methodCallExpression.prototype);
-
-function call4x1(method, arg0, arg1, arg2) {
-    this.method = method;
-    this.arg0 = arg0;
-    this.arg1 = arg1;
-    this.arg2 = arg2;
-}
-call4x1.prototype = Object.create(methodCallExpression.prototype);
-
-function call4x2(instance, method, arg0, arg1) {
-    this.instance = instance;
-    this.method = method;
-    this.arg0 = arg0;
-    this.arg1 = arg1;
-}
-call4x2.prototype = Object.create(methodCallExpression.prototype);
-
-function call4x3(instance, methodName, typeArguments, theArguments) {
+function call4x1(instance, methodName, typeArguments, theArguments) {
     this.instance = instance;
     this.methodName = methodName;
     this.typeArguments = typeArguments;
     this.arguments = theArguments;
 }
-call4x3.prototype = Object.create(methodCallExpression.prototype);
+call4x1.prototype = Object.create(methodCallExpression.prototype);
 
-function call4x4(type, methodName, typeArguments, theArguments) {
+function call4x2(type, methodName, typeArguments, theArguments) {
     this.type = type;
     this.methodName = methodName;
     this.typeArguments = typeArguments;
     this.arguments = theArguments;
 }
-call4x4.prototype = Object.create(methodCallExpression.prototype);
-
-function call5x1(method, arg0, arg1, arg2, arg3) {
-    this.method = method;
-    this.arg0 = arg0;
-    this.arg1 = arg1;
-    this.arg2 = arg2;
-    this.arg3 = arg3;
-}
-call5x1.prototype = Object.create(methodCallExpression.prototype);
-
-function call5x2(instance, method, arg0, arg1, arg2) {
-    this.instance = instance;
-    this.method = method;
-    this.arg0 = arg0;
-    this.arg1 = arg1;
-    this.arg2 = arg2;
-}
-call5x2.prototype = Object.create(methodCallExpression.prototype);
-
-function call6x1(method, arg0, arg1, arg2, arg3, arg4) {
-    this.method = method;
-    this.arg0 = arg0;
-    this.arg1 = arg1;
-    this.arg2 = arg2;
-    this.arg3 = arg3;
-    this.arg4 = arg4;
-}
-call6x1.prototype = Object.create(methodCallExpression.prototype);
+call4x2.prototype = Object.create(methodCallExpression.prototype);
 
 function newArrayInit2x1(type, initializers) {
     this.type = type;
@@ -1098,21 +588,10 @@ function newArrayBounds2x1(type, bounds) {
 }
 newArrayBounds2x1.prototype = Object.create(newArrayExpression.prototype);
 
-function new1x1(constructor) {
-    this.constructor = constructor;
-}
-new1x1.prototype = Object.create(newExpression.prototype);
-
-function new1x2(type) {
+function new1x1(type) {
     this.type = type;
 }
-new1x2.prototype = Object.create(newExpression.prototype);
-
-function new2x1(constructor, theArguments) {
-    this.constructor = constructor;
-    this.arguments = theArguments;
-}
-new2x1.prototype = Object.create(newExpression.prototype);
+new1x1.prototype = Object.create(newExpression.prototype);
 
 function parameter1x1(type) {
     this.type = type;
@@ -1165,97 +644,40 @@ function typeEqual2x1(expression, type) {
 }
 typeEqual2x1.prototype = Object.create(typeBinaryExpression.prototype);
 
-function makeUnary3x1(unaryType, operand, type) {
-    this.unaryType = unaryType;
-    this.operand = operand;
-    this.type = type;
-}
-makeUnary3x1.prototype = Object.create(unaryExpression.prototype);
-
-function makeUnary4x1(unaryType, operand, type, method) {
-    this.unaryType = unaryType;
-    this.operand = operand;
-    this.type = type;
-    this.method = method;
-}
-makeUnary4x1.prototype = Object.create(unaryExpression.prototype);
-
 function negate1x1(expression) {
     this.expression = expression;
 }
 negate1x1.prototype = Object.create(unaryExpression.prototype);
-
-function negate2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-negate2x1.prototype = Object.create(unaryExpression.prototype);
 
 function unaryPlus1x1(expression) {
     this.expression = expression;
 }
 unaryPlus1x1.prototype = Object.create(unaryExpression.prototype);
 
-function unaryPlus2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-unaryPlus2x1.prototype = Object.create(unaryExpression.prototype);
-
 function negateChecked1x1(expression) {
     this.expression = expression;
 }
 negateChecked1x1.prototype = Object.create(unaryExpression.prototype);
-
-function negateChecked2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-negateChecked2x1.prototype = Object.create(unaryExpression.prototype);
 
 function not1x1(expression) {
     this.expression = expression;
 }
 not1x1.prototype = Object.create(unaryExpression.prototype);
 
-function not2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-not2x1.prototype = Object.create(unaryExpression.prototype);
-
 function isFalse1x1(expression) {
     this.expression = expression;
 }
 isFalse1x1.prototype = Object.create(unaryExpression.prototype);
-
-function isFalse2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-isFalse2x1.prototype = Object.create(unaryExpression.prototype);
 
 function isTrue1x1(expression) {
     this.expression = expression;
 }
 isTrue1x1.prototype = Object.create(unaryExpression.prototype);
 
-function isTrue2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-isTrue2x1.prototype = Object.create(unaryExpression.prototype);
-
 function onesComplement1x1(expression) {
     this.expression = expression;
 }
 onesComplement1x1.prototype = Object.create(unaryExpression.prototype);
-
-function onesComplement2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-onesComplement2x1.prototype = Object.create(unaryExpression.prototype);
 
 function typeAs2x1(expression, type) {
     this.expression = expression;
@@ -1275,25 +697,11 @@ function convert2x1(expression, type) {
 }
 convert2x1.prototype = Object.create(unaryExpression.prototype);
 
-function convert3x1(expression, type, method) {
-    this.expression = expression;
-    this.type = type;
-    this.method = method;
-}
-convert3x1.prototype = Object.create(unaryExpression.prototype);
-
 function convertChecked2x1(expression, type) {
     this.expression = expression;
     this.type = type;
 }
 convertChecked2x1.prototype = Object.create(unaryExpression.prototype);
-
-function convertChecked3x1(expression, type, method) {
-    this.expression = expression;
-    this.type = type;
-    this.method = method;
-}
-convertChecked3x1.prototype = Object.create(unaryExpression.prototype);
 
 function arrayLength1x1(array) {
     this.array = array;
@@ -1331,66 +739,30 @@ function increment1x1(expression) {
 }
 increment1x1.prototype = Object.create(unaryExpression.prototype);
 
-function increment2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-increment2x1.prototype = Object.create(unaryExpression.prototype);
-
 function decrement1x1(expression) {
     this.expression = expression;
 }
 decrement1x1.prototype = Object.create(unaryExpression.prototype);
-
-function decrement2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-decrement2x1.prototype = Object.create(unaryExpression.prototype);
 
 function preIncrementAssign1x1(expression) {
     this.expression = expression;
 }
 preIncrementAssign1x1.prototype = Object.create(unaryExpression.prototype);
 
-function preIncrementAssign2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-preIncrementAssign2x1.prototype = Object.create(unaryExpression.prototype);
-
 function preDecrementAssign1x1(expression) {
     this.expression = expression;
 }
 preDecrementAssign1x1.prototype = Object.create(unaryExpression.prototype);
-
-function preDecrementAssign2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-preDecrementAssign2x1.prototype = Object.create(unaryExpression.prototype);
 
 function postIncrementAssign1x1(expression) {
     this.expression = expression;
 }
 postIncrementAssign1x1.prototype = Object.create(unaryExpression.prototype);
 
-function postIncrementAssign2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-postIncrementAssign2x1.prototype = Object.create(unaryExpression.prototype);
-
 function postDecrementAssign1x1(expression) {
     this.expression = expression;
 }
 postDecrementAssign1x1.prototype = Object.create(unaryExpression.prototype);
-
-function postDecrementAssign2x1(expression, method) {
-    this.expression = expression;
-    this.method = method;
-}
-postDecrementAssign2x1.prototype = Object.create(unaryExpression.prototype);
 
 expression.assign = function () {
     if (arguments.length == 2) {
@@ -1400,33 +772,10 @@ expression.assign = function () {
     }
 };
 
-expression.makeBinary = function () {
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expressionType) && (arguments[1] instanceof expression) && (arguments[2] instanceof expression)) {
-            return new makeBinary3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 5) {
-        if ((arguments[0] instanceof expressionType) && (arguments[1] instanceof expression) && (arguments[2] instanceof expression) && (typeof arguments[3] == "boolean") && (arguments[4] instanceof runtimeMethodInfo)) {
-            return new makeBinary5x1(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
-        }
-    }
-    if (arguments.length == 6) {
-        if ((arguments[0] instanceof expressionType) && (arguments[1] instanceof expression) && (arguments[2] instanceof expression) && (typeof arguments[3] == "boolean") && (arguments[4] instanceof runtimeMethodInfo) && (arguments[5] instanceof lambdaExpression)) {
-            return new makeBinary6x1(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4], arguments[5]);
-        }
-    }
-};
-
 expression.equal = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new equal2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (typeof arguments[2] == "boolean") && (arguments[3] instanceof runtimeMethodInfo)) {
-            return new equal4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1445,11 +794,6 @@ expression.notEqual = function () {
             return new notEqual2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (typeof arguments[2] == "boolean") && (arguments[3] instanceof runtimeMethodInfo)) {
-            return new notEqual4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
-    }
 };
 
 expression.referenceNotEqual = function () {
@@ -1466,22 +810,12 @@ expression.greaterThan = function () {
             return new greaterThan2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (typeof arguments[2] == "boolean") && (arguments[3] instanceof runtimeMethodInfo)) {
-            return new greaterThan4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
-    }
 };
 
 expression.lessThan = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new lessThan2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (typeof arguments[2] == "boolean") && (arguments[3] instanceof runtimeMethodInfo)) {
-            return new lessThan4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1492,22 +826,12 @@ expression.greaterThanOrEqual = function () {
             return new greaterThanOrEqual2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (typeof arguments[2] == "boolean") && (arguments[3] instanceof runtimeMethodInfo)) {
-            return new greaterThanOrEqual4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
-    }
 };
 
 expression.lessThanOrEqual = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new lessThanOrEqual2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (typeof arguments[2] == "boolean") && (arguments[3] instanceof runtimeMethodInfo)) {
-            return new lessThanOrEqual4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1518,22 +842,12 @@ expression.andAlso = function () {
             return new andAlso2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new andAlso3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.orElse = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new orElse2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new orElse3x1(arguments[0], arguments[1], arguments[2]);
         }
     }
 };
@@ -1557,27 +871,12 @@ expression.add = function () {
             return new add2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new add3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.addAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new addAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new addAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new addAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1588,27 +887,12 @@ expression.addAssignChecked = function () {
             return new addAssignChecked2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new addAssignChecked3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new addAssignChecked4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
-    }
 };
 
 expression.addChecked = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new addChecked2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new addChecked3x1(arguments[0], arguments[1], arguments[2]);
         }
     }
 };
@@ -1619,27 +903,12 @@ expression.subtract = function () {
             return new subtract2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new subtract3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.subtractAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new subtractAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new subtractAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new subtractAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1650,27 +919,12 @@ expression.subtractAssignChecked = function () {
             return new subtractAssignChecked2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new subtractAssignChecked3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new subtractAssignChecked4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
-    }
 };
 
 expression.subtractChecked = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new subtractChecked2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new subtractChecked3x1(arguments[0], arguments[1], arguments[2]);
         }
     }
 };
@@ -1681,27 +935,12 @@ expression.divide = function () {
             return new divide2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new divide3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.divideAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new divideAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new divideAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new divideAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1712,27 +951,12 @@ expression.modulo = function () {
             return new modulo2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new modulo3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.moduloAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new moduloAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new moduloAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new moduloAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1743,27 +967,12 @@ expression.multiply = function () {
             return new multiply2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new multiply3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.multiplyAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new multiplyAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new multiplyAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new multiplyAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1774,27 +983,12 @@ expression.multiplyAssignChecked = function () {
             return new multiplyAssignChecked2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new multiplyAssignChecked3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new multiplyAssignChecked4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
-    }
 };
 
 expression.multiplyChecked = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new multiplyChecked2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new multiplyChecked3x1(arguments[0], arguments[1], arguments[2]);
         }
     }
 };
@@ -1805,27 +999,12 @@ expression.leftShift = function () {
             return new leftShift2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new leftShift3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.leftShiftAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new leftShiftAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new leftShiftAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new leftShiftAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1836,27 +1015,12 @@ expression.rightShift = function () {
             return new rightShift2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new rightShift3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.rightShiftAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new rightShiftAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new rightShiftAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new rightShiftAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1867,27 +1031,12 @@ expression.and = function () {
             return new and2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new and3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.andAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new andAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new andAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new andAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1898,27 +1047,12 @@ expression.or = function () {
             return new or2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new or3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.orAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new orAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new orAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new orAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1929,27 +1063,12 @@ expression.exclusiveOr = function () {
             return new exclusiveOr2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new exclusiveOr3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.exclusiveOrAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new exclusiveOrAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new exclusiveOrAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new exclusiveOrAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -1960,27 +1079,12 @@ expression.power = function () {
             return new power2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new power3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.powerAssign = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new powerAssign2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new powerAssign3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeMethodInfo) && (arguments[3] instanceof lambdaExpression)) {
-            return new powerAssign4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -2096,22 +1200,13 @@ expression.property = function () {
         if ((arguments[0] instanceof expression) && (typeof arguments[1] == "string") && (arguments[2] instanceof Array)) {
             return new property3x1(arguments[0], arguments[1], arguments[2]);
         }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimePropertyInfo) && (arguments[2] instanceof Array)) {
-            return new property3x2(arguments[0], arguments[1], arguments[2]);
-        }
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeType) && (typeof arguments[2] == "string")) {
-            return new property3x3(arguments[0], arguments[1], arguments[2]);
+            return new property3x2(arguments[0], arguments[1], arguments[2]);
         }
     }
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (typeof arguments[1] == "string")) {
             return new property2x1(arguments[0], arguments[1]);
-        }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimePropertyInfo)) {
-            return new property2x2(arguments[0], arguments[1]);
-        }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new property2x3(arguments[0], arguments[1]);
         }
     }
 };
@@ -2151,11 +1246,6 @@ expression.listInit = function () {
             return new listInit2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof newExpression) && (arguments[1] instanceof runtimeMethodInfo) && (arguments[2] instanceof Array)) {
-            return new listInit3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.loop = function () {
@@ -2168,11 +1258,8 @@ expression.loop = function () {
 
 expression.field = function () {
     if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeFieldInfo)) {
-            return new field2x1(arguments[0], arguments[1]);
-        }
         if ((arguments[0] instanceof expression) && (typeof arguments[1] == "string")) {
-            return new field2x2(arguments[0], arguments[1]);
+            return new field2x1(arguments[0], arguments[1]);
         }
     }
     if (arguments.length == 3) {
@@ -2190,59 +1277,13 @@ expression.propertyOrField = function () {
     }
 };
 
-expression.makeMemberAccess = function () {
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMemberInfo)) {
-            return new makeMemberAccess2x1(arguments[0], arguments[1]);
-        }
-    }
-};
-
 expression.call = function () {
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof runtimeMethodInfo) && (arguments[1] instanceof expression)) {
-            return new call2x1(arguments[0], arguments[1]);
-        }
-        if ((arguments[0] instanceof runtimeMethodInfo) && (arguments[1] instanceof Array)) {
-            return new call2x2(arguments[0], arguments[1]);
-        }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new call2x3(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof runtimeMethodInfo) && (arguments[1] instanceof expression) && (arguments[2] instanceof expression)) {
-            return new call3x1(arguments[0], arguments[1], arguments[2]);
-        }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo) && (arguments[2] instanceof Array)) {
-            return new call3x2(arguments[0], arguments[1], arguments[2]);
-        }
-    }
     if (arguments.length == 4) {
-        if ((arguments[0] instanceof runtimeMethodInfo) && (arguments[1] instanceof expression) && (arguments[2] instanceof expression) && (arguments[3] instanceof expression)) {
+        if ((arguments[0] instanceof expression) && (typeof arguments[1] == "string") && (arguments[2] instanceof Array) && (arguments[3] instanceof Array)) {
             return new call4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo) && (arguments[2] instanceof expression) && (arguments[3] instanceof expression)) {
-            return new call4x2(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
-        if ((arguments[0] instanceof expression) && (typeof arguments[1] == "string") && (arguments[2] instanceof Array) && (arguments[3] instanceof Array)) {
-            return new call4x3(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
         if ((arguments[0] instanceof runtimeType) && (typeof arguments[1] == "string") && (arguments[2] instanceof Array) && (arguments[3] instanceof Array)) {
-            return new call4x4(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
-    }
-    if (arguments.length == 5) {
-        if ((arguments[0] instanceof runtimeMethodInfo) && (arguments[1] instanceof expression) && (arguments[2] instanceof expression) && (arguments[3] instanceof expression) && (arguments[4] instanceof expression)) {
-            return new call5x1(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
-        }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo) && (arguments[2] instanceof expression) && (arguments[3] instanceof expression) && (arguments[4] instanceof expression)) {
-            return new call5x2(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
-        }
-    }
-    if (arguments.length == 6) {
-        if ((arguments[0] instanceof runtimeMethodInfo) && (arguments[1] instanceof expression) && (arguments[2] instanceof expression) && (arguments[3] instanceof expression) && (arguments[4] instanceof expression) && (arguments[5] instanceof expression)) {
-            return new call6x1(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4], arguments[5]);
+            return new call4x2(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
 };
@@ -2265,16 +1306,8 @@ expression.newArrayBounds = function () {
 
 expression.new = function () {
     if (arguments.length == 1) {
-        if ((arguments[0] instanceof runtimeConstructorInfo)) {
-            return new new1x1(arguments[0]);
-        }
         if ((arguments[0] instanceof runtimeType)) {
-            return new new1x2(arguments[0]);
-        }
-    }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof runtimeConstructorInfo) && (arguments[1] instanceof Array)) {
-            return new new2x1(arguments[0], arguments[1]);
+            return new new1x1(arguments[0]);
         }
     }
 };
@@ -2345,28 +1378,10 @@ expression.typeEqual = function () {
     }
 };
 
-expression.makeUnary = function () {
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expressionType) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeType)) {
-            return new makeUnary3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
-    if (arguments.length == 4) {
-        if ((arguments[0] instanceof expressionType) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeType) && (arguments[3] instanceof runtimeMethodInfo)) {
-            return new makeUnary4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
-    }
-};
-
 expression.negate = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof expression)) {
             return new negate1x1(arguments[0]);
-        }
-    }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new negate2x1(arguments[0], arguments[1]);
         }
     }
 };
@@ -2377,22 +1392,12 @@ expression.unaryPlus = function () {
             return new unaryPlus1x1(arguments[0]);
         }
     }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new unaryPlus2x1(arguments[0], arguments[1]);
-        }
-    }
 };
 
 expression.negateChecked = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof expression)) {
             return new negateChecked1x1(arguments[0]);
-        }
-    }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new negateChecked2x1(arguments[0], arguments[1]);
         }
     }
 };
@@ -2403,22 +1408,12 @@ expression.not = function () {
             return new not1x1(arguments[0]);
         }
     }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new not2x1(arguments[0], arguments[1]);
-        }
-    }
 };
 
 expression.isFalse = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof expression)) {
             return new isFalse1x1(arguments[0]);
-        }
-    }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new isFalse2x1(arguments[0], arguments[1]);
         }
     }
 };
@@ -2429,22 +1424,12 @@ expression.isTrue = function () {
             return new isTrue1x1(arguments[0]);
         }
     }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new isTrue2x1(arguments[0], arguments[1]);
-        }
-    }
 };
 
 expression.onesComplement = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof expression)) {
             return new onesComplement1x1(arguments[0]);
-        }
-    }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new onesComplement2x1(arguments[0], arguments[1]);
         }
     }
 };
@@ -2471,22 +1456,12 @@ expression.convert = function () {
             return new convert2x1(arguments[0], arguments[1]);
         }
     }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeType) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new convert3x1(arguments[0], arguments[1], arguments[2]);
-        }
-    }
 };
 
 expression.convertChecked = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeType)) {
             return new convertChecked2x1(arguments[0], arguments[1]);
-        }
-    }
-    if (arguments.length == 3) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeType) && (arguments[2] instanceof runtimeMethodInfo)) {
-            return new convertChecked3x1(arguments[0], arguments[1], arguments[2]);
         }
     }
 };
@@ -2537,22 +1512,12 @@ expression.increment = function () {
             return new increment1x1(arguments[0]);
         }
     }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new increment2x1(arguments[0], arguments[1]);
-        }
-    }
 };
 
 expression.decrement = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof expression)) {
             return new decrement1x1(arguments[0]);
-        }
-    }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new decrement2x1(arguments[0], arguments[1]);
         }
     }
 };
@@ -2563,22 +1528,12 @@ expression.preIncrementAssign = function () {
             return new preIncrementAssign1x1(arguments[0]);
         }
     }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new preIncrementAssign2x1(arguments[0], arguments[1]);
-        }
-    }
 };
 
 expression.preDecrementAssign = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof expression)) {
             return new preDecrementAssign1x1(arguments[0]);
-        }
-    }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new preDecrementAssign2x1(arguments[0], arguments[1]);
         }
     }
 };
@@ -2589,11 +1544,6 @@ expression.postIncrementAssign = function () {
             return new postIncrementAssign1x1(arguments[0]);
         }
     }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new postIncrementAssign2x1(arguments[0], arguments[1]);
-        }
-    }
 };
 
 expression.postDecrementAssign = function () {
@@ -2602,9 +1552,714 @@ expression.postDecrementAssign = function () {
             return new postDecrementAssign1x1(arguments[0]);
         }
     }
-    if (arguments.length == 2) {
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof runtimeMethodInfo)) {
-            return new postDecrementAssign2x1(arguments[0], arguments[1]);
+};
+
+expression.prototype.assign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new assign2x1(self, arguments[0]);
         }
+    }
+};
+
+expression.prototype.equal = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new equal2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.referenceEqual = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new referenceEqual2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.notEqual = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new notEqual2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.referenceNotEqual = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new referenceNotEqual2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.greaterThan = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new greaterThan2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.lessThan = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new lessThan2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.greaterThanOrEqual = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new greaterThanOrEqual2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.lessThanOrEqual = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new lessThanOrEqual2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.andAlso = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new andAlso2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.orElse = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new orElse2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.coalesce = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new coalesce2x1(self, arguments[0]);
+        }
+    }
+    if (arguments.length == 2) {
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof lambdaExpression)) {
+            return new coalesce3x1(self, arguments[0], arguments[1]);
+        }
+    }
+};
+
+expression.prototype.add = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new add2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.addAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new addAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.addAssignChecked = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new addAssignChecked2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.addChecked = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new addChecked2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.subtract = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new subtract2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.subtractAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new subtractAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.subtractAssignChecked = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new subtractAssignChecked2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.subtractChecked = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new subtractChecked2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.divide = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new divide2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.divideAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new divideAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.modulo = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new modulo2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.moduloAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new moduloAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.multiply = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new multiply2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.multiplyAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new multiplyAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.multiplyAssignChecked = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new multiplyAssignChecked2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.multiplyChecked = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new multiplyChecked2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.leftShift = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new leftShift2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.leftShiftAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new leftShiftAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.rightShift = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new rightShift2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.rightShiftAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new rightShiftAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.and = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new and2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.andAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new andAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.or = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new or2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.orAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new orAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.exclusiveOr = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new exclusiveOr2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.exclusiveOrAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new exclusiveOrAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.power = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new power2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.powerAssign = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new powerAssign2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.arrayIndex = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new arrayIndex2x1(self, arguments[0]);
+        }
+        if ((arguments[0] instanceof Array)) {
+            return new arrayIndex2x2(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.block = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new block2x1(self, arguments[0]);
+        }
+    }
+    if (arguments.length == 2) {
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
+            return new block3x1(self, arguments[0], arguments[1]);
+        }
+    }
+    if (arguments.length == 3) {
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof expression)) {
+            return new block4x1(self, arguments[0], arguments[1], arguments[2]);
+        }
+    }
+    if (arguments.length == 4) {
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof expression) && (arguments[3] instanceof expression)) {
+            return new block5x1(self, arguments[0], arguments[1], arguments[2], arguments[3]);
+        }
+    }
+};
+
+expression.prototype.condition = function () {
+    self = this;
+    if (arguments.length == 2) {
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
+            return new condition3x1(self, arguments[0], arguments[1]);
+        }
+    }
+    if (arguments.length == 3) {
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof runtimeType)) {
+            return new condition4x1(self, arguments[0], arguments[1], arguments[2]);
+        }
+    }
+};
+
+expression.prototype.ifThen = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new ifThen2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.ifThenElse = function () {
+    self = this;
+    if (arguments.length == 2) {
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
+            return new ifThenElse3x1(self, arguments[0], arguments[1]);
+        }
+    }
+};
+
+expression.prototype.arrayAccess = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof Array)) {
+            return new arrayAccess2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.property = function () {
+    self = this;
+    if (arguments.length == 2) {
+        if ((typeof arguments[0] == "string") && (arguments[1] instanceof Array)) {
+            return new property3x1(self, arguments[0], arguments[1]);
+        }
+        if ((arguments[0] instanceof runtimeType) && (typeof arguments[1] == "string")) {
+            return new property3x2(self, arguments[0], arguments[1]);
+        }
+    }
+    if (arguments.length == 1) {
+        if ((typeof arguments[0] == "string")) {
+            return new property2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.invoke = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof Array)) {
+            return new invoke2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.lambda = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof Array)) {
+            return new lambda2x1(self, arguments[0]);
+        }
+    }
+    if (arguments.length == 2) {
+        if ((typeof arguments[0] == "boolean") && (arguments[1] instanceof Array)) {
+            return new lambda3x1(self, arguments[0], arguments[1]);
+        }
+    }
+};
+
+expression.prototype.loop = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new loop1x1(self);
+    }
+};
+
+expression.prototype.field = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((typeof arguments[0] == "string")) {
+            return new field2x1(self, arguments[0]);
+        }
+    }
+    if (arguments.length == 2) {
+        if ((arguments[0] instanceof runtimeType) && (typeof arguments[1] == "string")) {
+            return new field3x1(self, arguments[0], arguments[1]);
+        }
+    }
+};
+
+expression.prototype.propertyOrField = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((typeof arguments[0] == "string")) {
+            return new propertyOrField2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.call = function () {
+    self = this;
+    if (arguments.length == 3) {
+        if ((typeof arguments[0] == "string") && (arguments[1] instanceof Array) && (arguments[2] instanceof Array)) {
+            return new call4x1(self, arguments[0], arguments[1], arguments[2]);
+        }
+    }
+};
+
+expression.prototype.tryFault = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new tryFault2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.tryFinally = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof expression)) {
+            return new tryFinally2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.typeIs = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof runtimeType)) {
+            return new typeIs2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.typeEqual = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof runtimeType)) {
+            return new typeEqual2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.negate = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new negate1x1(self);
+    }
+};
+
+expression.prototype.unaryPlus = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new unaryPlus1x1(self);
+    }
+};
+
+expression.prototype.negateChecked = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new negateChecked1x1(self);
+    }
+};
+
+expression.prototype.not = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new not1x1(self);
+    }
+};
+
+expression.prototype.isFalse = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new isFalse1x1(self);
+    }
+};
+
+expression.prototype.isTrue = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new isTrue1x1(self);
+    }
+};
+
+expression.prototype.onesComplement = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new onesComplement1x1(self);
+    }
+};
+
+expression.prototype.typeAs = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof runtimeType)) {
+            return new typeAs2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.unbox = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof runtimeType)) {
+            return new unbox2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.convert = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof runtimeType)) {
+            return new convert2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.convertChecked = function () {
+    self = this;
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof runtimeType)) {
+            return new convertChecked2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.arrayLength = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new arrayLength1x1(self);
+    }
+};
+
+expression.prototype.quote = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new quote1x1(self);
+    }
+};
+
+expression.prototype.throw = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new throw1x1(self);
+    }
+    if (arguments.length == 1) {
+        if ((arguments[0] instanceof runtimeType)) {
+            return new throw2x1(self, arguments[0]);
+        }
+    }
+};
+
+expression.prototype.increment = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new increment1x1(self);
+    }
+};
+
+expression.prototype.decrement = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new decrement1x1(self);
+    }
+};
+
+expression.prototype.preIncrementAssign = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new preIncrementAssign1x1(self);
+    }
+};
+
+expression.prototype.preDecrementAssign = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new preDecrementAssign1x1(self);
+    }
+};
+
+expression.prototype.postIncrementAssign = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new postIncrementAssign1x1(self);
+    }
+};
+
+expression.prototype.postDecrementAssign = function () {
+    self = this;
+    if (arguments.length == 0) {
+        return new postDecrementAssign1x1(self);
     }
 };
