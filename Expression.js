@@ -447,20 +447,6 @@ function arrayIndex2x1(array, index) {
 arrayIndex2x1.prototype = Object.create(binaryExpression.prototype);
 arrayIndex2x1.prototype._type = "arrayIndex2x1";
 
-function arrayIndex2x2(array, indexes) {
-    this.array = array;
-    this.indexes = indexes;
-}
-arrayIndex2x2.prototype = Object.create(methodCallExpression.prototype);
-arrayIndex2x2.prototype._type = "arrayIndex2x2";
-
-function arrayIndex2x3(array, indexes) {
-    this.array = array;
-    this.indexes = indexes;
-}
-arrayIndex2x3.prototype = Object.create(methodCallExpression.prototype);
-arrayIndex2x3.prototype._type = "arrayIndex2x3";
-
 function block2x1(arg0, arg1) {
     this.arg0 = arg0;
     this.arg1 = arg1;
@@ -475,26 +461,12 @@ function block2x2(type, expressions) {
 block2x2.prototype = Object.create(blockExpression.prototype);
 block2x2.prototype._type = "block2x2";
 
-function block2x3(type, expressions) {
-    this.type = type;
+function block2x3(variables, expressions) {
+    this.variables = variables;
     this.expressions = expressions;
 }
 block2x3.prototype = Object.create(blockExpression.prototype);
 block2x3.prototype._type = "block2x3";
-
-function block2x4(variables, expressions) {
-    this.variables = variables;
-    this.expressions = expressions;
-}
-block2x4.prototype = Object.create(blockExpression.prototype);
-block2x4.prototype._type = "block2x4";
-
-function block2x5(variables, expressions) {
-    this.variables = variables;
-    this.expressions = expressions;
-}
-block2x5.prototype = Object.create(blockExpression.prototype);
-block2x5.prototype._type = "block2x5";
 
 function block3x1(arg0, arg1, arg2) {
     this.arg0 = arg0;
@@ -511,14 +483,6 @@ function block3x2(type, variables, expressions) {
 }
 block3x2.prototype = Object.create(blockExpression.prototype);
 block3x2.prototype._type = "block3x2";
-
-function block3x3(type, variables, expressions) {
-    this.type = type;
-    this.variables = variables;
-    this.expressions = expressions;
-}
-block3x3.prototype = Object.create(blockExpression.prototype);
-block3x3.prototype._type = "block3x3";
 
 function block4x1(arg0, arg1, arg2, arg3) {
     this.arg0 = arg0;
@@ -544,12 +508,6 @@ function block1x1(expressions) {
 }
 block1x1.prototype = Object.create(blockExpression.prototype);
 block1x1.prototype._type = "block1x1";
-
-function block1x2(expressions) {
-    this.expressions = expressions;
-}
-block1x2.prototype = Object.create(blockExpression.prototype);
-block1x2.prototype._type = "block1x2";
 
 function condition3x1(test, ifTrue, ifFalse) {
     this.test = test;
@@ -615,13 +573,6 @@ function arrayAccess2x1(array, indexes) {
 arrayAccess2x1.prototype = Object.create(indexExpression.prototype);
 arrayAccess2x1.prototype._type = "arrayAccess2x1";
 
-function arrayAccess2x2(array, indexes) {
-    this.array = array;
-    this.indexes = indexes;
-}
-arrayAccess2x2.prototype = Object.create(indexExpression.prototype);
-arrayAccess2x2.prototype._type = "arrayAccess2x2";
-
 function property3x1(instance, propertyName, theArguments) {
     this.instance = instance;
     this.propertyName = propertyName;
@@ -652,26 +603,12 @@ function invoke2x1(expression, theArguments) {
 invoke2x1.prototype = Object.create(invocationExpression.prototype);
 invoke2x1.prototype._type = "invoke2x1";
 
-function invoke2x2(expression, theArguments) {
-    this.expression = expression;
-    this.arguments = theArguments;
-}
-invoke2x2.prototype = Object.create(invocationExpression.prototype);
-invoke2x2.prototype._type = "invoke2x2";
-
 function lambda2x1(body, parameters) {
     this.body = body;
     this.parameters = parameters;
 }
 lambda2x1.prototype = Object.create(lambdaExpression.prototype);
 lambda2x1.prototype._type = "lambda2x1";
-
-function lambda2x2(body, parameters) {
-    this.body = body;
-    this.parameters = parameters;
-}
-lambda2x2.prototype = Object.create(lambdaExpression.prototype);
-lambda2x2.prototype._type = "lambda2x2";
 
 function lambda3x1(body, tailCall, parameters) {
     this.body = body;
@@ -681,37 +618,21 @@ function lambda3x1(body, tailCall, parameters) {
 lambda3x1.prototype = Object.create(lambdaExpression.prototype);
 lambda3x1.prototype._type = "lambda3x1";
 
-function lambda3x2(body, tailCall, parameters) {
+function lambda3x2(delegateType, body, parameters) {
+    this.delegateType = delegateType;
     this.body = body;
-    this.tailCall = tailCall;
     this.parameters = parameters;
 }
 lambda3x2.prototype = Object.create(lambdaExpression.prototype);
 lambda3x2.prototype._type = "lambda3x2";
 
-function lambda3x3(delegateType, body, parameters) {
-    this.delegateType = delegateType;
-    this.body = body;
-    this.parameters = parameters;
-}
-lambda3x3.prototype = Object.create(lambdaExpression.prototype);
-lambda3x3.prototype._type = "lambda3x3";
-
-function lambda3x4(delegateType, body, parameters) {
-    this.delegateType = delegateType;
-    this.body = body;
-    this.parameters = parameters;
-}
-lambda3x4.prototype = Object.create(lambdaExpression.prototype);
-lambda3x4.prototype._type = "lambda3x4";
-
-function lambda3x5(body, name, parameters) {
+function lambda3x3(body, name, parameters) {
     this.body = body;
     this.name = name;
     this.parameters = parameters;
 }
-lambda3x5.prototype = Object.create(lambdaExpression.prototype);
-lambda3x5.prototype._type = "lambda3x5";
+lambda3x3.prototype = Object.create(lambdaExpression.prototype);
+lambda3x3.prototype._type = "lambda3x3";
 
 function lambda4x1(delegateType, body, tailCall, parameters) {
     this.delegateType = delegateType;
@@ -722,32 +643,23 @@ function lambda4x1(delegateType, body, tailCall, parameters) {
 lambda4x1.prototype = Object.create(lambdaExpression.prototype);
 lambda4x1.prototype._type = "lambda4x1";
 
-function lambda4x2(delegateType, body, tailCall, parameters) {
-    this.delegateType = delegateType;
+function lambda4x2(body, name, tailCall, parameters) {
     this.body = body;
+    this.name = name;
     this.tailCall = tailCall;
     this.parameters = parameters;
 }
 lambda4x2.prototype = Object.create(lambdaExpression.prototype);
 lambda4x2.prototype._type = "lambda4x2";
 
-function lambda4x3(body, name, tailCall, parameters) {
-    this.body = body;
-    this.name = name;
-    this.tailCall = tailCall;
-    this.parameters = parameters;
-}
-lambda4x3.prototype = Object.create(lambdaExpression.prototype);
-lambda4x3.prototype._type = "lambda4x3";
-
-function lambda4x4(delegateType, body, name, parameters) {
+function lambda4x3(delegateType, body, name, parameters) {
     this.delegateType = delegateType;
     this.body = body;
     this.name = name;
     this.parameters = parameters;
 }
-lambda4x4.prototype = Object.create(lambdaExpression.prototype);
-lambda4x4.prototype._type = "lambda4x4";
+lambda4x3.prototype = Object.create(lambdaExpression.prototype);
+lambda4x3.prototype._type = "lambda4x3";
 
 function lambda5x1(delegateType, body, name, tailCall, parameters) {
     this.delegateType = delegateType;
@@ -765,13 +677,6 @@ function listInit2x1(newExpression, initializers) {
 }
 listInit2x1.prototype = Object.create(listInitExpression.prototype);
 listInit2x1.prototype._type = "listInit2x1";
-
-function listInit2x2(newExpression, initializers) {
-    this.newExpression = newExpression;
-    this.initializers = initializers;
-}
-listInit2x2.prototype = Object.create(listInitExpression.prototype);
-listInit2x2.prototype._type = "listInit2x2";
 
 function loop1x1(body) {
     this.body = body;
@@ -826,26 +731,12 @@ function newArrayInit2x1(type, initializers) {
 newArrayInit2x1.prototype = Object.create(newArrayExpression.prototype);
 newArrayInit2x1.prototype._type = "newArrayInit2x1";
 
-function newArrayInit2x2(type, initializers) {
-    this.type = type;
-    this.initializers = initializers;
-}
-newArrayInit2x2.prototype = Object.create(newArrayExpression.prototype);
-newArrayInit2x2.prototype._type = "newArrayInit2x2";
-
 function newArrayBounds2x1(type, bounds) {
     this.type = type;
     this.bounds = bounds;
 }
 newArrayBounds2x1.prototype = Object.create(newArrayExpression.prototype);
 newArrayBounds2x1.prototype._type = "newArrayBounds2x1";
-
-function newArrayBounds2x2(type, bounds) {
-    this.type = type;
-    this.bounds = bounds;
-}
-newArrayBounds2x2.prototype = Object.create(newArrayExpression.prototype);
-newArrayBounds2x2.prototype._type = "newArrayBounds2x2";
 
 function new1x1(type) {
     this.type = type;
@@ -884,12 +775,6 @@ function runtimeVariables1x1(variables) {
 }
 runtimeVariables1x1.prototype = Object.create(runtimeVariablesExpression.prototype);
 runtimeVariables1x1.prototype._type = "runtimeVariables1x1";
-
-function runtimeVariables1x2(variables) {
-    this.variables = variables;
-}
-runtimeVariables1x2.prototype = Object.create(runtimeVariablesExpression.prototype);
-runtimeVariables1x2.prototype._type = "runtimeVariables1x2";
 
 function tryFault2x1(body, fault) {
     this.body = body;
@@ -1392,12 +1277,6 @@ expression.arrayIndex = function () {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
             return new arrayIndex2x1(arguments[0], arguments[1]);
         }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
-            return new arrayIndex2x2(arguments[0], arguments[1]);
-        }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
-            return new arrayIndex2x3(arguments[0], arguments[1]);
-        }
     }
 };
 
@@ -1409,14 +1288,8 @@ expression.block = function () {
         if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
             return new block2x2(arguments[0], arguments[1]);
         }
-        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
+        if ((arguments[0] instanceof Array) && (arguments[1] instanceof Array)) {
             return new block2x3(arguments[0], arguments[1]);
-        }
-        if ((arguments[0] instanceof Array) && (arguments[1] instanceof Array)) {
-            return new block2x4(arguments[0], arguments[1]);
-        }
-        if ((arguments[0] instanceof Array) && (arguments[1] instanceof Array)) {
-            return new block2x5(arguments[0], arguments[1]);
         }
     }
     if (arguments.length == 3) {
@@ -1425,9 +1298,6 @@ expression.block = function () {
         }
         if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array) && (arguments[2] instanceof Array)) {
             return new block3x2(arguments[0], arguments[1], arguments[2]);
-        }
-        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array) && (arguments[2] instanceof Array)) {
-            return new block3x3(arguments[0], arguments[1], arguments[2]);
         }
     }
     if (arguments.length == 4) {
@@ -1443,9 +1313,6 @@ expression.block = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof Array)) {
             return new block1x1(arguments[0]);
-        }
-        if ((arguments[0] instanceof Array)) {
-            return new block1x2(arguments[0]);
         }
     }
 };
@@ -1511,9 +1378,6 @@ expression.arrayAccess = function () {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
             return new arrayAccess2x1(arguments[0], arguments[1]);
         }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
-            return new arrayAccess2x2(arguments[0], arguments[1]);
-        }
     }
 };
 
@@ -1538,9 +1402,6 @@ expression.invoke = function () {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
             return new invoke2x1(arguments[0], arguments[1]);
         }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
-            return new invoke2x2(arguments[0], arguments[1]);
-        }
     }
 };
 
@@ -1549,39 +1410,27 @@ expression.lambda = function () {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
             return new lambda2x1(arguments[0], arguments[1]);
         }
-        if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
-            return new lambda2x2(arguments[0], arguments[1]);
-        }
     }
     if (arguments.length == 3) {
         if ((arguments[0] instanceof expression) && (typeof arguments[1] == "boolean") && (arguments[2] instanceof Array)) {
             return new lambda3x1(arguments[0], arguments[1], arguments[2]);
         }
-        if ((arguments[0] instanceof expression) && (typeof arguments[1] == "boolean") && (arguments[2] instanceof Array)) {
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (arguments[2] instanceof Array)) {
             return new lambda3x2(arguments[0], arguments[1], arguments[2]);
         }
-        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (arguments[2] instanceof Array)) {
-            return new lambda3x3(arguments[0], arguments[1], arguments[2]);
-        }
-        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (arguments[2] instanceof Array)) {
-            return new lambda3x4(arguments[0], arguments[1], arguments[2]);
-        }
         if ((arguments[0] instanceof expression) && (typeof arguments[1] == "string") && (arguments[2] instanceof Array)) {
-            return new lambda3x5(arguments[0], arguments[1], arguments[2]);
+            return new lambda3x3(arguments[0], arguments[1], arguments[2]);
         }
     }
     if (arguments.length == 4) {
         if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (typeof arguments[2] == "boolean") && (arguments[3] instanceof Array)) {
             return new lambda4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
-        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (typeof arguments[2] == "boolean") && (arguments[3] instanceof Array)) {
+        if ((arguments[0] instanceof expression) && (typeof arguments[1] == "string") && (typeof arguments[2] == "boolean") && (arguments[3] instanceof Array)) {
             return new lambda4x2(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
-        if ((arguments[0] instanceof expression) && (typeof arguments[1] == "string") && (typeof arguments[2] == "boolean") && (arguments[3] instanceof Array)) {
-            return new lambda4x3(arguments[0], arguments[1], arguments[2], arguments[3]);
-        }
         if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (typeof arguments[2] == "string") && (arguments[3] instanceof Array)) {
-            return new lambda4x4(arguments[0], arguments[1], arguments[2], arguments[3]);
+            return new lambda4x3(arguments[0], arguments[1], arguments[2], arguments[3]);
         }
     }
     if (arguments.length == 5) {
@@ -1595,9 +1444,6 @@ expression.listInit = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof newExpression) && (arguments[1] instanceof Array)) {
             return new listInit2x1(arguments[0], arguments[1]);
-        }
-        if ((arguments[0] instanceof newExpression) && (arguments[1] instanceof Array)) {
-            return new listInit2x2(arguments[0], arguments[1]);
         }
     }
 };
@@ -1647,9 +1493,6 @@ expression.newArrayInit = function () {
         if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
             return new newArrayInit2x1(arguments[0], arguments[1]);
         }
-        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
-            return new newArrayInit2x2(arguments[0], arguments[1]);
-        }
     }
 };
 
@@ -1657,9 +1500,6 @@ expression.newArrayBounds = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
             return new newArrayBounds2x1(arguments[0], arguments[1]);
-        }
-        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
-            return new newArrayBounds2x2(arguments[0], arguments[1]);
         }
     }
 };
@@ -1702,9 +1542,6 @@ expression.runtimeVariables = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof Array)) {
             return new runtimeVariables1x1(arguments[0]);
-        }
-        if ((arguments[0] instanceof Array)) {
-            return new runtimeVariables1x2(arguments[0]);
         }
     }
 };
@@ -2288,12 +2125,6 @@ expression.prototype.arrayIndex = function () {
         if ((arguments[0] instanceof expression)) {
             return new arrayIndex2x1(self, arguments[0]);
         }
-        if ((arguments[0] instanceof Array)) {
-            return new arrayIndex2x2(self, arguments[0]);
-        }
-        if ((arguments[0] instanceof Array)) {
-            return new arrayIndex2x3(self, arguments[0]);
-        }
     }
 };
 
@@ -2359,9 +2190,6 @@ expression.prototype.arrayAccess = function () {
         if ((arguments[0] instanceof Array)) {
             return new arrayAccess2x1(self, arguments[0]);
         }
-        if ((arguments[0] instanceof Array)) {
-            return new arrayAccess2x2(self, arguments[0]);
-        }
     }
 };
 
@@ -2388,9 +2216,6 @@ expression.prototype.invoke = function () {
         if ((arguments[0] instanceof Array)) {
             return new invoke2x1(self, arguments[0]);
         }
-        if ((arguments[0] instanceof Array)) {
-            return new invoke2x2(self, arguments[0]);
-        }
     }
 };
 
@@ -2400,24 +2225,18 @@ expression.prototype.lambda = function () {
         if ((arguments[0] instanceof Array)) {
             return new lambda2x1(self, arguments[0]);
         }
-        if ((arguments[0] instanceof Array)) {
-            return new lambda2x2(self, arguments[0]);
-        }
     }
     if (arguments.length == 2) {
         if ((typeof arguments[0] == "boolean") && (arguments[1] instanceof Array)) {
             return new lambda3x1(self, arguments[0], arguments[1]);
         }
-        if ((typeof arguments[0] == "boolean") && (arguments[1] instanceof Array)) {
-            return new lambda3x2(self, arguments[0], arguments[1]);
-        }
         if ((typeof arguments[0] == "string") && (arguments[1] instanceof Array)) {
-            return new lambda3x5(self, arguments[0], arguments[1]);
+            return new lambda3x3(self, arguments[0], arguments[1]);
         }
     }
     if (arguments.length == 3) {
         if ((typeof arguments[0] == "string") && (typeof arguments[1] == "boolean") && (arguments[2] instanceof Array)) {
-            return new lambda4x3(self, arguments[0], arguments[1], arguments[2]);
+            return new lambda4x2(self, arguments[0], arguments[1], arguments[2]);
         }
     }
 };
