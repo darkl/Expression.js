@@ -25,173 +25,216 @@ runtimeConstructorInfo.prototype = Object.create(runtimeMemberInfo);
 function expression() {
 
 }
+expression.prototype._type = "expression";
+expression.prototype.toJSON = function() {
+    self = this;
+    var tmp = {};
+
+    for (var key in self) {
+        if (typeof self[key] !== 'function')
+            tmp[key] = self[key];
+    }
+
+    return tmp;
+};
 
 function binaryExpression() {
 
 }
 binaryExpression.prototype = Object.create(expression.prototype);
+binaryExpression.prototype._type = "binaryExpression";
 
 function blockExpression() {
 
 }
 blockExpression.prototype = Object.create(expression.prototype);
+blockExpression.prototype._type = "blockExpression";
 
 function conditionalExpression() {
 
 }
 conditionalExpression.prototype = Object.create(expression.prototype);
+conditionalExpression.prototype._type = "conditionalExpression";
 
 function constantExpression() {
 
 }
 constantExpression.prototype = Object.create(expression.prototype);
+constantExpression.prototype._type = "constantExpression";
 
 function defaultExpression() {
 
 }
 defaultExpression.prototype = Object.create(expression.prototype);
+defaultExpression.prototype._type = "defaultExpression";
 
 function indexExpression() {
 
 }
 indexExpression.prototype = Object.create(expression.prototype);
+indexExpression.prototype._type = "indexExpression";
 
 function invocationExpression() {
 
 }
 invocationExpression.prototype = Object.create(expression.prototype);
+invocationExpression.prototype._type = "invocationExpression";
 
 function lambdaExpression() {
 
 }
 lambdaExpression.prototype = Object.create(expression.prototype);
+lambdaExpression.prototype._type = "lambdaExpression";
 
 function listInitExpression() {
 
 }
 listInitExpression.prototype = Object.create(expression.prototype);
+listInitExpression.prototype._type = "listInitExpression";
 
 function loopExpression() {
 
 }
 loopExpression.prototype = Object.create(expression.prototype);
+loopExpression.prototype._type = "loopExpression";
 
 function memberExpression() {
 
 }
 memberExpression.prototype = Object.create(expression.prototype);
+memberExpression.prototype._type = "memberExpression";
 
 function methodCallExpression() {
 
 }
 methodCallExpression.prototype = Object.create(expression.prototype);
+methodCallExpression.prototype._type = "methodCallExpression";
 
 function newArrayExpression() {
 
 }
 newArrayExpression.prototype = Object.create(expression.prototype);
+newArrayExpression.prototype._type = "newArrayExpression";
 
 function newExpression() {
 
 }
 newExpression.prototype = Object.create(expression.prototype);
+newExpression.prototype._type = "newExpression";
 
 function parameterExpression() {
 
 }
 parameterExpression.prototype = Object.create(expression.prototype);
+parameterExpression.prototype._type = "parameterExpression";
 
 function runtimeVariablesExpression() {
 
 }
 runtimeVariablesExpression.prototype = Object.create(expression.prototype);
+runtimeVariablesExpression.prototype._type = "runtimeVariablesExpression";
 
 function tryExpression() {
 
 }
 tryExpression.prototype = Object.create(expression.prototype);
+tryExpression.prototype._type = "tryExpression";
 
 function typeBinaryExpression() {
 
 }
 typeBinaryExpression.prototype = Object.create(expression.prototype);
+typeBinaryExpression.prototype._type = "typeBinaryExpression";
 
 function unaryExpression() {
 
 }
 unaryExpression.prototype = Object.create(expression.prototype);
+unaryExpression.prototype._type = "unaryExpression";
 
 function assign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 assign2x1.prototype = Object.create(binaryExpression.prototype);
+assign2x1.prototype._type = "assign2x1";
 
 function equal2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 equal2x1.prototype = Object.create(binaryExpression.prototype);
+equal2x1.prototype._type = "equal2x1";
 
 function referenceEqual2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 referenceEqual2x1.prototype = Object.create(binaryExpression.prototype);
+referenceEqual2x1.prototype._type = "referenceEqual2x1";
 
 function notEqual2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 notEqual2x1.prototype = Object.create(binaryExpression.prototype);
+notEqual2x1.prototype._type = "notEqual2x1";
 
 function referenceNotEqual2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 referenceNotEqual2x1.prototype = Object.create(binaryExpression.prototype);
+referenceNotEqual2x1.prototype._type = "referenceNotEqual2x1";
 
 function greaterThan2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 greaterThan2x1.prototype = Object.create(binaryExpression.prototype);
+greaterThan2x1.prototype._type = "greaterThan2x1";
 
 function lessThan2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 lessThan2x1.prototype = Object.create(binaryExpression.prototype);
+lessThan2x1.prototype._type = "lessThan2x1";
 
 function greaterThanOrEqual2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 greaterThanOrEqual2x1.prototype = Object.create(binaryExpression.prototype);
+greaterThanOrEqual2x1.prototype._type = "greaterThanOrEqual2x1";
 
 function lessThanOrEqual2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 lessThanOrEqual2x1.prototype = Object.create(binaryExpression.prototype);
+lessThanOrEqual2x1.prototype._type = "lessThanOrEqual2x1";
 
 function andAlso2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 andAlso2x1.prototype = Object.create(binaryExpression.prototype);
+andAlso2x1.prototype._type = "andAlso2x1";
 
 function orElse2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 orElse2x1.prototype = Object.create(binaryExpression.prototype);
+orElse2x1.prototype._type = "orElse2x1";
 
 function coalesce2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 coalesce2x1.prototype = Object.create(binaryExpression.prototype);
+coalesce2x1.prototype._type = "coalesce2x1";
 
 function coalesce3x1(left, right, conversion) {
     this.left = left;
@@ -199,198 +242,259 @@ function coalesce3x1(left, right, conversion) {
     this.conversion = conversion;
 }
 coalesce3x1.prototype = Object.create(binaryExpression.prototype);
+coalesce3x1.prototype._type = "coalesce3x1";
 
 function add2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 add2x1.prototype = Object.create(binaryExpression.prototype);
+add2x1.prototype._type = "add2x1";
 
 function addAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 addAssign2x1.prototype = Object.create(binaryExpression.prototype);
+addAssign2x1.prototype._type = "addAssign2x1";
 
 function addAssignChecked2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 addAssignChecked2x1.prototype = Object.create(binaryExpression.prototype);
+addAssignChecked2x1.prototype._type = "addAssignChecked2x1";
 
 function addChecked2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 addChecked2x1.prototype = Object.create(binaryExpression.prototype);
+addChecked2x1.prototype._type = "addChecked2x1";
 
 function subtract2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 subtract2x1.prototype = Object.create(binaryExpression.prototype);
+subtract2x1.prototype._type = "subtract2x1";
 
 function subtractAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 subtractAssign2x1.prototype = Object.create(binaryExpression.prototype);
+subtractAssign2x1.prototype._type = "subtractAssign2x1";
 
 function subtractAssignChecked2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 subtractAssignChecked2x1.prototype = Object.create(binaryExpression.prototype);
+subtractAssignChecked2x1.prototype._type = "subtractAssignChecked2x1";
 
 function subtractChecked2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 subtractChecked2x1.prototype = Object.create(binaryExpression.prototype);
+subtractChecked2x1.prototype._type = "subtractChecked2x1";
 
 function divide2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 divide2x1.prototype = Object.create(binaryExpression.prototype);
+divide2x1.prototype._type = "divide2x1";
 
 function divideAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 divideAssign2x1.prototype = Object.create(binaryExpression.prototype);
+divideAssign2x1.prototype._type = "divideAssign2x1";
 
 function modulo2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 modulo2x1.prototype = Object.create(binaryExpression.prototype);
+modulo2x1.prototype._type = "modulo2x1";
 
 function moduloAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 moduloAssign2x1.prototype = Object.create(binaryExpression.prototype);
+moduloAssign2x1.prototype._type = "moduloAssign2x1";
 
 function multiply2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 multiply2x1.prototype = Object.create(binaryExpression.prototype);
+multiply2x1.prototype._type = "multiply2x1";
 
 function multiplyAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 multiplyAssign2x1.prototype = Object.create(binaryExpression.prototype);
+multiplyAssign2x1.prototype._type = "multiplyAssign2x1";
 
 function multiplyAssignChecked2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 multiplyAssignChecked2x1.prototype = Object.create(binaryExpression.prototype);
+multiplyAssignChecked2x1.prototype._type = "multiplyAssignChecked2x1";
 
 function multiplyChecked2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 multiplyChecked2x1.prototype = Object.create(binaryExpression.prototype);
+multiplyChecked2x1.prototype._type = "multiplyChecked2x1";
 
 function leftShift2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 leftShift2x1.prototype = Object.create(binaryExpression.prototype);
+leftShift2x1.prototype._type = "leftShift2x1";
 
 function leftShiftAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 leftShiftAssign2x1.prototype = Object.create(binaryExpression.prototype);
+leftShiftAssign2x1.prototype._type = "leftShiftAssign2x1";
 
 function rightShift2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 rightShift2x1.prototype = Object.create(binaryExpression.prototype);
+rightShift2x1.prototype._type = "rightShift2x1";
 
 function rightShiftAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 rightShiftAssign2x1.prototype = Object.create(binaryExpression.prototype);
+rightShiftAssign2x1.prototype._type = "rightShiftAssign2x1";
 
 function and2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 and2x1.prototype = Object.create(binaryExpression.prototype);
+and2x1.prototype._type = "and2x1";
 
 function andAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 andAssign2x1.prototype = Object.create(binaryExpression.prototype);
+andAssign2x1.prototype._type = "andAssign2x1";
 
 function or2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 or2x1.prototype = Object.create(binaryExpression.prototype);
+or2x1.prototype._type = "or2x1";
 
 function orAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 orAssign2x1.prototype = Object.create(binaryExpression.prototype);
+orAssign2x1.prototype._type = "orAssign2x1";
 
 function exclusiveOr2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 exclusiveOr2x1.prototype = Object.create(binaryExpression.prototype);
+exclusiveOr2x1.prototype._type = "exclusiveOr2x1";
 
 function exclusiveOrAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 exclusiveOrAssign2x1.prototype = Object.create(binaryExpression.prototype);
+exclusiveOrAssign2x1.prototype._type = "exclusiveOrAssign2x1";
 
 function power2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 power2x1.prototype = Object.create(binaryExpression.prototype);
+power2x1.prototype._type = "power2x1";
 
 function powerAssign2x1(left, right) {
     this.left = left;
     this.right = right;
 }
 powerAssign2x1.prototype = Object.create(binaryExpression.prototype);
+powerAssign2x1.prototype._type = "powerAssign2x1";
 
 function arrayIndex2x1(array, index) {
     this.array = array;
     this.index = index;
 }
 arrayIndex2x1.prototype = Object.create(binaryExpression.prototype);
+arrayIndex2x1.prototype._type = "arrayIndex2x1";
 
 function arrayIndex2x2(array, indexes) {
     this.array = array;
     this.indexes = indexes;
 }
 arrayIndex2x2.prototype = Object.create(methodCallExpression.prototype);
+arrayIndex2x2.prototype._type = "arrayIndex2x2";
+
+function arrayIndex2x3(array, indexes) {
+    this.array = array;
+    this.indexes = indexes;
+}
+arrayIndex2x3.prototype = Object.create(methodCallExpression.prototype);
+arrayIndex2x3.prototype._type = "arrayIndex2x3";
 
 function block2x1(arg0, arg1) {
     this.arg0 = arg0;
     this.arg1 = arg1;
 }
 block2x1.prototype = Object.create(blockExpression.prototype);
+block2x1.prototype._type = "block2x1";
 
 function block2x2(type, expressions) {
     this.type = type;
     this.expressions = expressions;
 }
 block2x2.prototype = Object.create(blockExpression.prototype);
+block2x2.prototype._type = "block2x2";
+
+function block2x3(type, expressions) {
+    this.type = type;
+    this.expressions = expressions;
+}
+block2x3.prototype = Object.create(blockExpression.prototype);
+block2x3.prototype._type = "block2x3";
+
+function block2x4(variables, expressions) {
+    this.variables = variables;
+    this.expressions = expressions;
+}
+block2x4.prototype = Object.create(blockExpression.prototype);
+block2x4.prototype._type = "block2x4";
+
+function block2x5(variables, expressions) {
+    this.variables = variables;
+    this.expressions = expressions;
+}
+block2x5.prototype = Object.create(blockExpression.prototype);
+block2x5.prototype._type = "block2x5";
 
 function block3x1(arg0, arg1, arg2) {
     this.arg0 = arg0;
@@ -398,6 +502,23 @@ function block3x1(arg0, arg1, arg2) {
     this.arg2 = arg2;
 }
 block3x1.prototype = Object.create(blockExpression.prototype);
+block3x1.prototype._type = "block3x1";
+
+function block3x2(type, variables, expressions) {
+    this.type = type;
+    this.variables = variables;
+    this.expressions = expressions;
+}
+block3x2.prototype = Object.create(blockExpression.prototype);
+block3x2.prototype._type = "block3x2";
+
+function block3x3(type, variables, expressions) {
+    this.type = type;
+    this.variables = variables;
+    this.expressions = expressions;
+}
+block3x3.prototype = Object.create(blockExpression.prototype);
+block3x3.prototype._type = "block3x3";
 
 function block4x1(arg0, arg1, arg2, arg3) {
     this.arg0 = arg0;
@@ -406,6 +527,7 @@ function block4x1(arg0, arg1, arg2, arg3) {
     this.arg3 = arg3;
 }
 block4x1.prototype = Object.create(blockExpression.prototype);
+block4x1.prototype._type = "block4x1";
 
 function block5x1(arg0, arg1, arg2, arg3, arg4) {
     this.arg0 = arg0;
@@ -415,11 +537,19 @@ function block5x1(arg0, arg1, arg2, arg3, arg4) {
     this.arg4 = arg4;
 }
 block5x1.prototype = Object.create(blockExpression.prototype);
+block5x1.prototype._type = "block5x1";
 
 function block1x1(expressions) {
     this.expressions = expressions;
 }
 block1x1.prototype = Object.create(blockExpression.prototype);
+block1x1.prototype._type = "block1x1";
+
+function block1x2(expressions) {
+    this.expressions = expressions;
+}
+block1x2.prototype = Object.create(blockExpression.prototype);
+block1x2.prototype._type = "block1x2";
 
 function condition3x1(test, ifTrue, ifFalse) {
     this.test = test;
@@ -427,6 +557,7 @@ function condition3x1(test, ifTrue, ifFalse) {
     this.ifFalse = ifFalse;
 }
 condition3x1.prototype = Object.create(conditionalExpression.prototype);
+condition3x1.prototype._type = "condition3x1";
 
 function condition4x1(test, ifTrue, ifFalse, type) {
     this.test = test;
@@ -435,12 +566,14 @@ function condition4x1(test, ifTrue, ifFalse, type) {
     this.type = type;
 }
 condition4x1.prototype = Object.create(conditionalExpression.prototype);
+condition4x1.prototype._type = "condition4x1";
 
 function ifThen2x1(test, ifTrue) {
     this.test = test;
     this.ifTrue = ifTrue;
 }
 ifThen2x1.prototype = Object.create(conditionalExpression.prototype);
+ifThen2x1.prototype._type = "ifThen2x1";
 
 function ifThenElse3x1(test, ifTrue, ifFalse) {
     this.test = test;
@@ -448,33 +581,46 @@ function ifThenElse3x1(test, ifTrue, ifFalse) {
     this.ifFalse = ifFalse;
 }
 ifThenElse3x1.prototype = Object.create(conditionalExpression.prototype);
+ifThenElse3x1.prototype._type = "ifThenElse3x1";
 
 function constant1x1(value) {
     this.value = value;
 }
 constant1x1.prototype = Object.create(constantExpression.prototype);
+constant1x1.prototype._type = "constant1x1";
 
 function constant2x1(value, type) {
     this.value = value;
     this.type = type;
 }
 constant2x1.prototype = Object.create(constantExpression.prototype);
+constant2x1.prototype._type = "constant2x1";
 
 function empty0x1() {
 
 }
 empty0x1.prototype = Object.create(defaultExpression.prototype);
+empty0x1.prototype._type = "empty0x1";
 
 function default1x1(type) {
     this.type = type;
 }
 default1x1.prototype = Object.create(defaultExpression.prototype);
+default1x1.prototype._type = "default1x1";
 
 function arrayAccess2x1(array, indexes) {
     this.array = array;
     this.indexes = indexes;
 }
 arrayAccess2x1.prototype = Object.create(indexExpression.prototype);
+arrayAccess2x1.prototype._type = "arrayAccess2x1";
+
+function arrayAccess2x2(array, indexes) {
+    this.array = array;
+    this.indexes = indexes;
+}
+arrayAccess2x2.prototype = Object.create(indexExpression.prototype);
+arrayAccess2x2.prototype._type = "arrayAccess2x2";
 
 function property3x1(instance, propertyName, theArguments) {
     this.instance = instance;
@@ -482,6 +628,7 @@ function property3x1(instance, propertyName, theArguments) {
     this.arguments = theArguments;
 }
 property3x1.prototype = Object.create(indexExpression.prototype);
+property3x1.prototype._type = "property3x1";
 
 function property3x2(expression, type, propertyName) {
     this.expression = expression;
@@ -489,24 +636,42 @@ function property3x2(expression, type, propertyName) {
     this.propertyName = propertyName;
 }
 property3x2.prototype = Object.create(memberExpression.prototype);
+property3x2.prototype._type = "property3x2";
 
 function property2x1(expression, propertyName) {
     this.expression = expression;
     this.propertyName = propertyName;
 }
 property2x1.prototype = Object.create(memberExpression.prototype);
+property2x1.prototype._type = "property2x1";
 
 function invoke2x1(expression, theArguments) {
     this.expression = expression;
     this.arguments = theArguments;
 }
 invoke2x1.prototype = Object.create(invocationExpression.prototype);
+invoke2x1.prototype._type = "invoke2x1";
+
+function invoke2x2(expression, theArguments) {
+    this.expression = expression;
+    this.arguments = theArguments;
+}
+invoke2x2.prototype = Object.create(invocationExpression.prototype);
+invoke2x2.prototype._type = "invoke2x2";
 
 function lambda2x1(body, parameters) {
     this.body = body;
     this.parameters = parameters;
 }
 lambda2x1.prototype = Object.create(lambdaExpression.prototype);
+lambda2x1.prototype._type = "lambda2x1";
+
+function lambda2x2(body, parameters) {
+    this.body = body;
+    this.parameters = parameters;
+}
+lambda2x2.prototype = Object.create(lambdaExpression.prototype);
+lambda2x2.prototype._type = "lambda2x2";
 
 function lambda3x1(body, tailCall, parameters) {
     this.body = body;
@@ -514,13 +679,39 @@ function lambda3x1(body, tailCall, parameters) {
     this.parameters = parameters;
 }
 lambda3x1.prototype = Object.create(lambdaExpression.prototype);
+lambda3x1.prototype._type = "lambda3x1";
 
-function lambda3x2(delegateType, body, parameters) {
+function lambda3x2(body, tailCall, parameters) {
+    this.body = body;
+    this.tailCall = tailCall;
+    this.parameters = parameters;
+}
+lambda3x2.prototype = Object.create(lambdaExpression.prototype);
+lambda3x2.prototype._type = "lambda3x2";
+
+function lambda3x3(delegateType, body, parameters) {
     this.delegateType = delegateType;
     this.body = body;
     this.parameters = parameters;
 }
-lambda3x2.prototype = Object.create(lambdaExpression.prototype);
+lambda3x3.prototype = Object.create(lambdaExpression.prototype);
+lambda3x3.prototype._type = "lambda3x3";
+
+function lambda3x4(delegateType, body, parameters) {
+    this.delegateType = delegateType;
+    this.body = body;
+    this.parameters = parameters;
+}
+lambda3x4.prototype = Object.create(lambdaExpression.prototype);
+lambda3x4.prototype._type = "lambda3x4";
+
+function lambda3x5(body, name, parameters) {
+    this.body = body;
+    this.name = name;
+    this.parameters = parameters;
+}
+lambda3x5.prototype = Object.create(lambdaExpression.prototype);
+lambda3x5.prototype._type = "lambda3x5";
 
 function lambda4x1(delegateType, body, tailCall, parameters) {
     this.delegateType = delegateType;
@@ -529,23 +720,71 @@ function lambda4x1(delegateType, body, tailCall, parameters) {
     this.parameters = parameters;
 }
 lambda4x1.prototype = Object.create(lambdaExpression.prototype);
+lambda4x1.prototype._type = "lambda4x1";
+
+function lambda4x2(delegateType, body, tailCall, parameters) {
+    this.delegateType = delegateType;
+    this.body = body;
+    this.tailCall = tailCall;
+    this.parameters = parameters;
+}
+lambda4x2.prototype = Object.create(lambdaExpression.prototype);
+lambda4x2.prototype._type = "lambda4x2";
+
+function lambda4x3(body, name, tailCall, parameters) {
+    this.body = body;
+    this.name = name;
+    this.tailCall = tailCall;
+    this.parameters = parameters;
+}
+lambda4x3.prototype = Object.create(lambdaExpression.prototype);
+lambda4x3.prototype._type = "lambda4x3";
+
+function lambda4x4(delegateType, body, name, parameters) {
+    this.delegateType = delegateType;
+    this.body = body;
+    this.name = name;
+    this.parameters = parameters;
+}
+lambda4x4.prototype = Object.create(lambdaExpression.prototype);
+lambda4x4.prototype._type = "lambda4x4";
+
+function lambda5x1(delegateType, body, name, tailCall, parameters) {
+    this.delegateType = delegateType;
+    this.body = body;
+    this.name = name;
+    this.tailCall = tailCall;
+    this.parameters = parameters;
+}
+lambda5x1.prototype = Object.create(lambdaExpression.prototype);
+lambda5x1.prototype._type = "lambda5x1";
 
 function listInit2x1(newExpression, initializers) {
     this.newExpression = newExpression;
     this.initializers = initializers;
 }
 listInit2x1.prototype = Object.create(listInitExpression.prototype);
+listInit2x1.prototype._type = "listInit2x1";
+
+function listInit2x2(newExpression, initializers) {
+    this.newExpression = newExpression;
+    this.initializers = initializers;
+}
+listInit2x2.prototype = Object.create(listInitExpression.prototype);
+listInit2x2.prototype._type = "listInit2x2";
 
 function loop1x1(body) {
     this.body = body;
 }
 loop1x1.prototype = Object.create(loopExpression.prototype);
+loop1x1.prototype._type = "loop1x1";
 
 function field2x1(expression, fieldName) {
     this.expression = expression;
     this.fieldName = fieldName;
 }
 field2x1.prototype = Object.create(memberExpression.prototype);
+field2x1.prototype._type = "field2x1";
 
 function field3x1(expression, type, fieldName) {
     this.expression = expression;
@@ -553,12 +792,14 @@ function field3x1(expression, type, fieldName) {
     this.fieldName = fieldName;
 }
 field3x1.prototype = Object.create(memberExpression.prototype);
+field3x1.prototype._type = "field3x1";
 
 function propertyOrField2x1(expression, propertyOrFieldName) {
     this.expression = expression;
     this.propertyOrFieldName = propertyOrFieldName;
 }
 propertyOrField2x1.prototype = Object.create(memberExpression.prototype);
+propertyOrField2x1.prototype._type = "propertyOrField2x1";
 
 function call4x1(instance, methodName, typeArguments, theArguments) {
     this.instance = instance;
@@ -567,6 +808,7 @@ function call4x1(instance, methodName, typeArguments, theArguments) {
     this.arguments = theArguments;
 }
 call4x1.prototype = Object.create(methodCallExpression.prototype);
+call4x1.prototype._type = "call4x1";
 
 function call4x2(type, methodName, typeArguments, theArguments) {
     this.type = type;
@@ -575,194 +817,250 @@ function call4x2(type, methodName, typeArguments, theArguments) {
     this.arguments = theArguments;
 }
 call4x2.prototype = Object.create(methodCallExpression.prototype);
+call4x2.prototype._type = "call4x2";
 
 function newArrayInit2x1(type, initializers) {
     this.type = type;
     this.initializers = initializers;
 }
 newArrayInit2x1.prototype = Object.create(newArrayExpression.prototype);
+newArrayInit2x1.prototype._type = "newArrayInit2x1";
+
+function newArrayInit2x2(type, initializers) {
+    this.type = type;
+    this.initializers = initializers;
+}
+newArrayInit2x2.prototype = Object.create(newArrayExpression.prototype);
+newArrayInit2x2.prototype._type = "newArrayInit2x2";
 
 function newArrayBounds2x1(type, bounds) {
     this.type = type;
     this.bounds = bounds;
 }
 newArrayBounds2x1.prototype = Object.create(newArrayExpression.prototype);
+newArrayBounds2x1.prototype._type = "newArrayBounds2x1";
+
+function newArrayBounds2x2(type, bounds) {
+    this.type = type;
+    this.bounds = bounds;
+}
+newArrayBounds2x2.prototype = Object.create(newArrayExpression.prototype);
+newArrayBounds2x2.prototype._type = "newArrayBounds2x2";
 
 function new1x1(type) {
     this.type = type;
 }
 new1x1.prototype = Object.create(newExpression.prototype);
+new1x1.prototype._type = "new1x1";
 
 function parameter1x1(type) {
     this.type = type;
 }
 parameter1x1.prototype = Object.create(parameterExpression.prototype);
+parameter1x1.prototype._type = "parameter1x1";
 
 function parameter2x1(type, name) {
     this.type = type;
     this.name = name;
 }
 parameter2x1.prototype = Object.create(parameterExpression.prototype);
+parameter2x1.prototype._type = "parameter2x1";
 
 function variable1x1(type) {
     this.type = type;
 }
 variable1x1.prototype = Object.create(parameterExpression.prototype);
+variable1x1.prototype._type = "variable1x1";
 
 function variable2x1(type, name) {
     this.type = type;
     this.name = name;
 }
 variable2x1.prototype = Object.create(parameterExpression.prototype);
+variable2x1.prototype._type = "variable2x1";
 
 function runtimeVariables1x1(variables) {
     this.variables = variables;
 }
 runtimeVariables1x1.prototype = Object.create(runtimeVariablesExpression.prototype);
+runtimeVariables1x1.prototype._type = "runtimeVariables1x1";
+
+function runtimeVariables1x2(variables) {
+    this.variables = variables;
+}
+runtimeVariables1x2.prototype = Object.create(runtimeVariablesExpression.prototype);
+runtimeVariables1x2.prototype._type = "runtimeVariables1x2";
 
 function tryFault2x1(body, fault) {
     this.body = body;
     this.fault = fault;
 }
 tryFault2x1.prototype = Object.create(tryExpression.prototype);
+tryFault2x1.prototype._type = "tryFault2x1";
 
 function tryFinally2x1(body, theFinally) {
     this.body = body;
     this.finally = theFinally;
 }
 tryFinally2x1.prototype = Object.create(tryExpression.prototype);
+tryFinally2x1.prototype._type = "tryFinally2x1";
 
 function typeIs2x1(expression, type) {
     this.expression = expression;
     this.type = type;
 }
 typeIs2x1.prototype = Object.create(typeBinaryExpression.prototype);
+typeIs2x1.prototype._type = "typeIs2x1";
 
 function typeEqual2x1(expression, type) {
     this.expression = expression;
     this.type = type;
 }
 typeEqual2x1.prototype = Object.create(typeBinaryExpression.prototype);
+typeEqual2x1.prototype._type = "typeEqual2x1";
 
 function negate1x1(expression) {
     this.expression = expression;
 }
 negate1x1.prototype = Object.create(unaryExpression.prototype);
+negate1x1.prototype._type = "negate1x1";
 
 function unaryPlus1x1(expression) {
     this.expression = expression;
 }
 unaryPlus1x1.prototype = Object.create(unaryExpression.prototype);
+unaryPlus1x1.prototype._type = "unaryPlus1x1";
 
 function negateChecked1x1(expression) {
     this.expression = expression;
 }
 negateChecked1x1.prototype = Object.create(unaryExpression.prototype);
+negateChecked1x1.prototype._type = "negateChecked1x1";
 
 function not1x1(expression) {
     this.expression = expression;
 }
 not1x1.prototype = Object.create(unaryExpression.prototype);
+not1x1.prototype._type = "not1x1";
 
 function isFalse1x1(expression) {
     this.expression = expression;
 }
 isFalse1x1.prototype = Object.create(unaryExpression.prototype);
+isFalse1x1.prototype._type = "isFalse1x1";
 
 function isTrue1x1(expression) {
     this.expression = expression;
 }
 isTrue1x1.prototype = Object.create(unaryExpression.prototype);
+isTrue1x1.prototype._type = "isTrue1x1";
 
 function onesComplement1x1(expression) {
     this.expression = expression;
 }
 onesComplement1x1.prototype = Object.create(unaryExpression.prototype);
+onesComplement1x1.prototype._type = "onesComplement1x1";
 
 function typeAs2x1(expression, type) {
     this.expression = expression;
     this.type = type;
 }
 typeAs2x1.prototype = Object.create(unaryExpression.prototype);
+typeAs2x1.prototype._type = "typeAs2x1";
 
 function unbox2x1(expression, type) {
     this.expression = expression;
     this.type = type;
 }
 unbox2x1.prototype = Object.create(unaryExpression.prototype);
+unbox2x1.prototype._type = "unbox2x1";
 
 function convert2x1(expression, type) {
     this.expression = expression;
     this.type = type;
 }
 convert2x1.prototype = Object.create(unaryExpression.prototype);
+convert2x1.prototype._type = "convert2x1";
 
 function convertChecked2x1(expression, type) {
     this.expression = expression;
     this.type = type;
 }
 convertChecked2x1.prototype = Object.create(unaryExpression.prototype);
+convertChecked2x1.prototype._type = "convertChecked2x1";
 
 function arrayLength1x1(array) {
     this.array = array;
 }
 arrayLength1x1.prototype = Object.create(unaryExpression.prototype);
+arrayLength1x1.prototype._type = "arrayLength1x1";
 
 function quote1x1(expression) {
     this.expression = expression;
 }
 quote1x1.prototype = Object.create(unaryExpression.prototype);
+quote1x1.prototype._type = "quote1x1";
 
 function rethrow0x1() {
 
 }
 rethrow0x1.prototype = Object.create(unaryExpression.prototype);
+rethrow0x1.prototype._type = "rethrow0x1";
 
 function rethrow1x1(type) {
     this.type = type;
 }
 rethrow1x1.prototype = Object.create(unaryExpression.prototype);
+rethrow1x1.prototype._type = "rethrow1x1";
 
 function throw1x1(value) {
     this.value = value;
 }
 throw1x1.prototype = Object.create(unaryExpression.prototype);
+throw1x1.prototype._type = "throw1x1";
 
 function throw2x1(value, type) {
     this.value = value;
     this.type = type;
 }
 throw2x1.prototype = Object.create(unaryExpression.prototype);
+throw2x1.prototype._type = "throw2x1";
 
 function increment1x1(expression) {
     this.expression = expression;
 }
 increment1x1.prototype = Object.create(unaryExpression.prototype);
+increment1x1.prototype._type = "increment1x1";
 
 function decrement1x1(expression) {
     this.expression = expression;
 }
 decrement1x1.prototype = Object.create(unaryExpression.prototype);
+decrement1x1.prototype._type = "decrement1x1";
 
 function preIncrementAssign1x1(expression) {
     this.expression = expression;
 }
 preIncrementAssign1x1.prototype = Object.create(unaryExpression.prototype);
+preIncrementAssign1x1.prototype._type = "preIncrementAssign1x1";
 
 function preDecrementAssign1x1(expression) {
     this.expression = expression;
 }
 preDecrementAssign1x1.prototype = Object.create(unaryExpression.prototype);
+preDecrementAssign1x1.prototype._type = "preDecrementAssign1x1";
 
 function postIncrementAssign1x1(expression) {
     this.expression = expression;
 }
 postIncrementAssign1x1.prototype = Object.create(unaryExpression.prototype);
+postIncrementAssign1x1.prototype._type = "postIncrementAssign1x1";
 
 function postDecrementAssign1x1(expression) {
     this.expression = expression;
 }
 postDecrementAssign1x1.prototype = Object.create(unaryExpression.prototype);
+postDecrementAssign1x1.prototype._type = "postDecrementAssign1x1";
 
 expression.assign = function () {
     if (arguments.length == 2) {
@@ -1097,6 +1395,9 @@ expression.arrayIndex = function () {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
             return new arrayIndex2x2(arguments[0], arguments[1]);
         }
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
+            return new arrayIndex2x3(arguments[0], arguments[1]);
+        }
     }
 };
 
@@ -1108,10 +1409,25 @@ expression.block = function () {
         if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
             return new block2x2(arguments[0], arguments[1]);
         }
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
+            return new block2x3(arguments[0], arguments[1]);
+        }
+        if ((arguments[0] instanceof Array) && (arguments[1] instanceof Array)) {
+            return new block2x4(arguments[0], arguments[1]);
+        }
+        if ((arguments[0] instanceof Array) && (arguments[1] instanceof Array)) {
+            return new block2x5(arguments[0], arguments[1]);
+        }
     }
     if (arguments.length == 3) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression) && (arguments[2] instanceof expression)) {
             return new block3x1(arguments[0], arguments[1], arguments[2]);
+        }
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array) && (arguments[2] instanceof Array)) {
+            return new block3x2(arguments[0], arguments[1], arguments[2]);
+        }
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array) && (arguments[2] instanceof Array)) {
+            return new block3x3(arguments[0], arguments[1], arguments[2]);
         }
     }
     if (arguments.length == 4) {
@@ -1127,6 +1443,9 @@ expression.block = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof Array)) {
             return new block1x1(arguments[0]);
+        }
+        if ((arguments[0] instanceof Array)) {
+            return new block1x2(arguments[0]);
         }
     }
 };
@@ -1192,6 +1511,9 @@ expression.arrayAccess = function () {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
             return new arrayAccess2x1(arguments[0], arguments[1]);
         }
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
+            return new arrayAccess2x2(arguments[0], arguments[1]);
+        }
     }
 };
 
@@ -1216,6 +1538,9 @@ expression.invoke = function () {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
             return new invoke2x1(arguments[0], arguments[1]);
         }
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
+            return new invoke2x2(arguments[0], arguments[1]);
+        }
     }
 };
 
@@ -1224,18 +1549,44 @@ expression.lambda = function () {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
             return new lambda2x1(arguments[0], arguments[1]);
         }
+        if ((arguments[0] instanceof expression) && (arguments[1] instanceof Array)) {
+            return new lambda2x2(arguments[0], arguments[1]);
+        }
     }
     if (arguments.length == 3) {
         if ((arguments[0] instanceof expression) && (typeof arguments[1] == "boolean") && (arguments[2] instanceof Array)) {
             return new lambda3x1(arguments[0], arguments[1], arguments[2]);
         }
-        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (arguments[2] instanceof Array)) {
+        if ((arguments[0] instanceof expression) && (typeof arguments[1] == "boolean") && (arguments[2] instanceof Array)) {
             return new lambda3x2(arguments[0], arguments[1], arguments[2]);
+        }
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (arguments[2] instanceof Array)) {
+            return new lambda3x3(arguments[0], arguments[1], arguments[2]);
+        }
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (arguments[2] instanceof Array)) {
+            return new lambda3x4(arguments[0], arguments[1], arguments[2]);
+        }
+        if ((arguments[0] instanceof expression) && (typeof arguments[1] == "string") && (arguments[2] instanceof Array)) {
+            return new lambda3x5(arguments[0], arguments[1], arguments[2]);
         }
     }
     if (arguments.length == 4) {
         if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (typeof arguments[2] == "boolean") && (arguments[3] instanceof Array)) {
             return new lambda4x1(arguments[0], arguments[1], arguments[2], arguments[3]);
+        }
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (typeof arguments[2] == "boolean") && (arguments[3] instanceof Array)) {
+            return new lambda4x2(arguments[0], arguments[1], arguments[2], arguments[3]);
+        }
+        if ((arguments[0] instanceof expression) && (typeof arguments[1] == "string") && (typeof arguments[2] == "boolean") && (arguments[3] instanceof Array)) {
+            return new lambda4x3(arguments[0], arguments[1], arguments[2], arguments[3]);
+        }
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (typeof arguments[2] == "string") && (arguments[3] instanceof Array)) {
+            return new lambda4x4(arguments[0], arguments[1], arguments[2], arguments[3]);
+        }
+    }
+    if (arguments.length == 5) {
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof expression) && (typeof arguments[2] == "string") && (typeof arguments[3] == "boolean") && (arguments[4] instanceof Array)) {
+            return new lambda5x1(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
         }
     }
 };
@@ -1244,6 +1595,9 @@ expression.listInit = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof newExpression) && (arguments[1] instanceof Array)) {
             return new listInit2x1(arguments[0], arguments[1]);
+        }
+        if ((arguments[0] instanceof newExpression) && (arguments[1] instanceof Array)) {
+            return new listInit2x2(arguments[0], arguments[1]);
         }
     }
 };
@@ -1293,6 +1647,9 @@ expression.newArrayInit = function () {
         if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
             return new newArrayInit2x1(arguments[0], arguments[1]);
         }
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
+            return new newArrayInit2x2(arguments[0], arguments[1]);
+        }
     }
 };
 
@@ -1300,6 +1657,9 @@ expression.newArrayBounds = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
             return new newArrayBounds2x1(arguments[0], arguments[1]);
+        }
+        if ((arguments[0] instanceof runtimeType) && (arguments[1] instanceof Array)) {
+            return new newArrayBounds2x2(arguments[0], arguments[1]);
         }
     }
 };
@@ -1342,6 +1702,9 @@ expression.runtimeVariables = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof Array)) {
             return new runtimeVariables1x1(arguments[0]);
+        }
+        if ((arguments[0] instanceof Array)) {
+            return new runtimeVariables1x2(arguments[0]);
         }
     }
 };
@@ -1928,6 +2291,9 @@ expression.prototype.arrayIndex = function () {
         if ((arguments[0] instanceof Array)) {
             return new arrayIndex2x2(self, arguments[0]);
         }
+        if ((arguments[0] instanceof Array)) {
+            return new arrayIndex2x3(self, arguments[0]);
+        }
     }
 };
 
@@ -1993,6 +2359,9 @@ expression.prototype.arrayAccess = function () {
         if ((arguments[0] instanceof Array)) {
             return new arrayAccess2x1(self, arguments[0]);
         }
+        if ((arguments[0] instanceof Array)) {
+            return new arrayAccess2x2(self, arguments[0]);
+        }
     }
 };
 
@@ -2019,6 +2388,9 @@ expression.prototype.invoke = function () {
         if ((arguments[0] instanceof Array)) {
             return new invoke2x1(self, arguments[0]);
         }
+        if ((arguments[0] instanceof Array)) {
+            return new invoke2x2(self, arguments[0]);
+        }
     }
 };
 
@@ -2028,10 +2400,24 @@ expression.prototype.lambda = function () {
         if ((arguments[0] instanceof Array)) {
             return new lambda2x1(self, arguments[0]);
         }
+        if ((arguments[0] instanceof Array)) {
+            return new lambda2x2(self, arguments[0]);
+        }
     }
     if (arguments.length == 2) {
         if ((typeof arguments[0] == "boolean") && (arguments[1] instanceof Array)) {
             return new lambda3x1(self, arguments[0], arguments[1]);
+        }
+        if ((typeof arguments[0] == "boolean") && (arguments[1] instanceof Array)) {
+            return new lambda3x2(self, arguments[0], arguments[1]);
+        }
+        if ((typeof arguments[0] == "string") && (arguments[1] instanceof Array)) {
+            return new lambda3x5(self, arguments[0], arguments[1]);
+        }
+    }
+    if (arguments.length == 3) {
+        if ((typeof arguments[0] == "string") && (typeof arguments[1] == "boolean") && (arguments[2] instanceof Array)) {
+            return new lambda4x3(self, arguments[0], arguments[1], arguments[2]);
         }
     }
 };
