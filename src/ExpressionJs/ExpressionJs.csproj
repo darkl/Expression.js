@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExpressionBuilder.Operators.cs" />
     <Compile Include="CLRType.cs" />
     <Compile Include="ExpressionBuilder.cs" />
     <Compile Include="ExpressionConvertible.cs" />
