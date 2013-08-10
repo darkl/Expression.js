@@ -15,7 +15,7 @@ namespace ExpressionJs
         public ExpressionConvertibleConverter()
         {
             mAliasToType =
-                typeof (ExpressionConvertible)
+                this.GetType()
                     .Assembly.GetTypes()
                     .Where(x => x.IsDefined(typeof (JavascriptTypeAttribute), true))
                     .Select(x => new

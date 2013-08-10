@@ -47,7 +47,8 @@
     <Compile Include="ExpressionBuilder.Operators.cs" />
     <Compile Include="CLRType.cs" />
     <Compile Include="ExpressionBuilder.cs" />
-    <Compile Include="ExpressionConvertible.cs" />
+    <Compile Include="ExpressionConverter.cs" />
+    <Compile Include="ExpressionConvertibleExtensions.cs" />
     <Compile Include="ExpressionConvertibleConverter.cs" />
     <Compile Include="Expressions\Add.cs" />
     <Compile Include="Expressions\AddAssign.cs" />

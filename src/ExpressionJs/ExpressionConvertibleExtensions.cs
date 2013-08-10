@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace ExpressionJs
 {
-    public static class ExpressionConvertible
+    public static class ExpressionConvertibleExtensions
     {
         public static TExpression[] Unpack<TExpression>(this IExpressionConvertible<TExpression>[] pack,
             ExpressionBuilder builder)
