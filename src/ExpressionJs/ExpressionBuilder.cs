@@ -1,1080 +1,1069 @@
-﻿namespace ExpressionJs
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Reflection;
+
+namespace ExpressionJs
 {
     public partial class ExpressionBuilder
     {
+        private readonly MethodInfo mAddMethod;
+        private readonly MethodInfo mAndAlsoMethod;
+        private readonly MethodInfo mAndMethod;
+        private readonly MethodInfo mDivideMethod;
+        private readonly MethodInfo mEqualMethod;
 
-        private System.Reflection.MethodInfo mEqualMethod;
+        private readonly MethodInfo mGreaterThanMethod;
 
-        private System.Reflection.MethodInfo mNotEqualMethod;
+        private readonly MethodInfo mGreaterThanOrEqualMethod;
+        private readonly MethodInfo mLessThanMethod;
 
-        private System.Reflection.MethodInfo mGreaterThanMethod;
+        private readonly MethodInfo mLessThanOrEqualMethod;
+        private readonly MethodInfo mModuloMethod;
+        private readonly MethodInfo mMultiplyMethod;
+        private readonly MethodInfo mNotEqualMethod;
 
-        private System.Reflection.MethodInfo mLessThanMethod;
+        private readonly MethodInfo mOrElseMethod;
+        private readonly MethodInfo mOrMethod;
+        private readonly MethodInfo mSubtractMethod;
 
-        private System.Reflection.MethodInfo mGreaterThanOrEqualMethod;
+        private MethodInfo mAddAssignCheckedMethod;
+        private MethodInfo mAddAssignMethod;
 
-        private System.Reflection.MethodInfo mLessThanOrEqualMethod;
+        private MethodInfo mAddCheckedMethod;
+        private MethodInfo mAndAssignMethod;
 
-        private System.Reflection.MethodInfo mAndAlsoMethod;
+        private MethodInfo mDivideAssignMethod;
+        private MethodInfo mExclusiveOrAssignMethod;
+        private MethodInfo mExclusiveOrMethod;
+        private MethodInfo mLeftShiftAssignMethod;
+        private MethodInfo mLeftShiftMethod;
 
-        private System.Reflection.MethodInfo mOrElseMethod;
+        private MethodInfo mModuloAssignMethod;
 
-        private System.Reflection.MethodInfo mAddMethod;
+        private MethodInfo mMultiplyAssignCheckedMethod;
+        private MethodInfo mMultiplyAssignMethod;
 
-        private System.Reflection.MethodInfo mAddAssignMethod;
+        private MethodInfo mMultiplyCheckedMethod;
 
-        private System.Reflection.MethodInfo mAddAssignCheckedMethod;
+        private MethodInfo mOrAssignMethod;
 
-        private System.Reflection.MethodInfo mAddCheckedMethod;
-
-        private System.Reflection.MethodInfo mSubtractMethod;
-
-        private System.Reflection.MethodInfo mSubtractAssignMethod;
-
-        private System.Reflection.MethodInfo mSubtractAssignCheckedMethod;
-
-        private System.Reflection.MethodInfo mSubtractCheckedMethod;
-
-        private System.Reflection.MethodInfo mDivideMethod;
-
-        private System.Reflection.MethodInfo mDivideAssignMethod;
-
-        private System.Reflection.MethodInfo mModuloMethod;
-
-        private System.Reflection.MethodInfo mModuloAssignMethod;
-
-        private System.Reflection.MethodInfo mMultiplyMethod;
-
-        private System.Reflection.MethodInfo mMultiplyAssignMethod;
-
-        private System.Reflection.MethodInfo mMultiplyAssignCheckedMethod;
-
-        private System.Reflection.MethodInfo mMultiplyCheckedMethod;
-
-        private System.Reflection.MethodInfo mLeftShiftMethod;
-
-        private System.Reflection.MethodInfo mLeftShiftAssignMethod;
-
-        private System.Reflection.MethodInfo mRightShiftMethod;
-
-        private System.Reflection.MethodInfo mRightShiftAssignMethod;
-
-        private System.Reflection.MethodInfo mAndMethod;
-
-        private System.Reflection.MethodInfo mAndAssignMethod;
-
-        private System.Reflection.MethodInfo mOrMethod;
-
-        private System.Reflection.MethodInfo mOrAssignMethod;
-
-        private System.Reflection.MethodInfo mExclusiveOrMethod;
-
-        private System.Reflection.MethodInfo mExclusiveOrAssignMethod;
-
-        private System.Reflection.MethodInfo mPowerMethod;
-
-        private System.Reflection.MethodInfo mPowerAssignMethod;
+        private MethodInfo mPowerAssignMethod;
+        private MethodInfo mPowerMethod;
+        private MethodInfo mRightShiftAssignMethod;
+        private MethodInfo mRightShiftMethod;
+        private MethodInfo mSubtractAssignCheckedMethod;
+        private MethodInfo mSubtractAssignMethod;
+        private MethodInfo mSubtractCheckedMethod;
 
         [JavascriptType("assign")]
-        public virtual System.Linq.Expressions.BinaryExpression Assign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression Assign(Expression left, Expression right)
         {
-            return System.Linq.Expressions.Expression.Assign(left, right);
+            return Expression.Assign(left, right);
         }
 
         [JavascriptType("equal")]
-        public virtual System.Linq.Expressions.BinaryExpression Equal(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression Equal(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.Equal(left, right);
+                return Expression.Equal(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.Equal(leftCasted, rightCasted, false, this.mEqualMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.Equal(leftCasted, rightCasted, false, mEqualMethod);
             }
         }
 
         [JavascriptType("referenceEqual")]
-        public virtual System.Linq.Expressions.BinaryExpression ReferenceEqual(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression ReferenceEqual(Expression left, Expression right)
         {
-            return System.Linq.Expressions.Expression.ReferenceEqual(left, right);
+            return Expression.ReferenceEqual(left, right);
         }
 
         [JavascriptType("notEqual")]
-        public virtual System.Linq.Expressions.BinaryExpression NotEqual(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression NotEqual(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.NotEqual(left, right);
+                return Expression.NotEqual(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.NotEqual(leftCasted, rightCasted, false, this.mNotEqualMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.NotEqual(leftCasted, rightCasted, false, mNotEqualMethod);
             }
         }
 
         [JavascriptType("referenceNotEqual")]
-        public virtual System.Linq.Expressions.BinaryExpression ReferenceNotEqual(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression ReferenceNotEqual(Expression left, Expression right)
         {
-            return System.Linq.Expressions.Expression.ReferenceNotEqual(left, right);
+            return Expression.ReferenceNotEqual(left, right);
         }
 
         [JavascriptType("greaterThan")]
-        public virtual System.Linq.Expressions.BinaryExpression GreaterThan(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression GreaterThan(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.GreaterThan(left, right);
+                return Expression.GreaterThan(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.GreaterThan(leftCasted, rightCasted, false, this.mGreaterThanMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.GreaterThan(leftCasted, rightCasted, false, mGreaterThanMethod);
             }
         }
 
         [JavascriptType("lessThan")]
-        public virtual System.Linq.Expressions.BinaryExpression LessThan(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression LessThan(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.LessThan(left, right);
+                return Expression.LessThan(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.LessThan(leftCasted, rightCasted, false, this.mLessThanMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.LessThan(leftCasted, rightCasted, false, mLessThanMethod);
             }
         }
 
         [JavascriptType("greaterThanOrEqual")]
-        public virtual System.Linq.Expressions.BinaryExpression GreaterThanOrEqual(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression GreaterThanOrEqual(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.GreaterThanOrEqual(left, right);
+                return Expression.GreaterThanOrEqual(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.GreaterThanOrEqual(leftCasted, rightCasted, false, this.mGreaterThanOrEqualMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.GreaterThanOrEqual(leftCasted, rightCasted, false, mGreaterThanOrEqualMethod);
             }
         }
 
         [JavascriptType("lessThanOrEqual")]
-        public virtual System.Linq.Expressions.BinaryExpression LessThanOrEqual(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression LessThanOrEqual(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.LessThanOrEqual(left, right);
+                return Expression.LessThanOrEqual(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.LessThanOrEqual(leftCasted, rightCasted, false, this.mLessThanOrEqualMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.LessThanOrEqual(leftCasted, rightCasted, false, mLessThanOrEqualMethod);
             }
         }
 
         [JavascriptType("andAlso")]
-        public virtual System.Linq.Expressions.BinaryExpression AndAlso(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression AndAlso(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.AndAlso(left, right);
+                return Expression.AndAlso(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.AndAlso(leftCasted, rightCasted, this.mAndAlsoMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.AndAlso(leftCasted, rightCasted, mAndAlsoMethod);
             }
         }
 
         [JavascriptType("orElse")]
-        public virtual System.Linq.Expressions.BinaryExpression OrElse(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression OrElse(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.OrElse(left, right);
+                return Expression.OrElse(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.OrElse(leftCasted, rightCasted, this.mOrElseMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.OrElse(leftCasted, rightCasted, mOrElseMethod);
             }
         }
 
         [JavascriptType("coalesce2")]
-        public virtual System.Linq.Expressions.BinaryExpression Coalesce(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression Coalesce(Expression left, Expression right)
         {
-            return System.Linq.Expressions.Expression.Coalesce(left, right);
+            return Expression.Coalesce(left, right);
         }
 
         [JavascriptType("coalesce3")]
-        public virtual System.Linq.Expressions.BinaryExpression Coalesce(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right, System.Linq.Expressions.LambdaExpression conversion)
+        public virtual BinaryExpression Coalesce(Expression left, Expression right, LambdaExpression conversion)
         {
-            return System.Linq.Expressions.Expression.Coalesce(left, right, conversion);
+            return Expression.Coalesce(left, right, conversion);
         }
 
         [JavascriptType("add")]
-        public virtual System.Linq.Expressions.BinaryExpression Add(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression Add(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.Add(left, right);
+                return Expression.Add(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.Add(leftCasted, rightCasted, this.mAddMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.Add(leftCasted, rightCasted, mAddMethod);
             }
         }
 
         [JavascriptType("addAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression AddAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression AddAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.AddAssign(left, right);
+                return Expression.AddAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.AddAssign(leftCasted, rightCasted, this.mAddAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.AddAssign(leftCasted, rightCasted, mAddAssignMethod);
             }
         }
 
         [JavascriptType("addAssignChecked")]
-        public virtual System.Linq.Expressions.BinaryExpression AddAssignChecked(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression AddAssignChecked(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.AddAssignChecked(left, right);
+                return Expression.AddAssignChecked(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.AddAssignChecked(leftCasted, rightCasted, this.mAddAssignCheckedMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.AddAssignChecked(leftCasted, rightCasted, mAddAssignCheckedMethod);
             }
         }
 
         [JavascriptType("addChecked")]
-        public virtual System.Linq.Expressions.BinaryExpression AddChecked(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression AddChecked(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.AddChecked(left, right);
+                return Expression.AddChecked(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.AddChecked(leftCasted, rightCasted, this.mAddCheckedMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.AddChecked(leftCasted, rightCasted, mAddCheckedMethod);
             }
         }
 
         [JavascriptType("subtract")]
-        public virtual System.Linq.Expressions.BinaryExpression Subtract(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression Subtract(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.Subtract(left, right);
+                return Expression.Subtract(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.Subtract(leftCasted, rightCasted, this.mSubtractMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.Subtract(leftCasted, rightCasted, mSubtractMethod);
             }
         }
 
         [JavascriptType("subtractAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression SubtractAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression SubtractAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.SubtractAssign(left, right);
+                return Expression.SubtractAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.SubtractAssign(leftCasted, rightCasted, this.mSubtractAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.SubtractAssign(leftCasted, rightCasted, mSubtractAssignMethod);
             }
         }
 
         [JavascriptType("subtractAssignChecked")]
-        public virtual System.Linq.Expressions.BinaryExpression SubtractAssignChecked(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression SubtractAssignChecked(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.SubtractAssignChecked(left, right);
+                return Expression.SubtractAssignChecked(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.SubtractAssignChecked(leftCasted, rightCasted, this.mSubtractAssignCheckedMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.SubtractAssignChecked(leftCasted, rightCasted, mSubtractAssignCheckedMethod);
             }
         }
 
         [JavascriptType("subtractChecked")]
-        public virtual System.Linq.Expressions.BinaryExpression SubtractChecked(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression SubtractChecked(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.SubtractChecked(left, right);
+                return Expression.SubtractChecked(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.SubtractChecked(leftCasted, rightCasted, this.mSubtractCheckedMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.SubtractChecked(leftCasted, rightCasted, mSubtractCheckedMethod);
             }
         }
 
         [JavascriptType("divide")]
-        public virtual System.Linq.Expressions.BinaryExpression Divide(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression Divide(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.Divide(left, right);
+                return Expression.Divide(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.Divide(leftCasted, rightCasted, this.mDivideMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.Divide(leftCasted, rightCasted, mDivideMethod);
             }
         }
 
         [JavascriptType("divideAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression DivideAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression DivideAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.DivideAssign(left, right);
+                return Expression.DivideAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.DivideAssign(leftCasted, rightCasted, this.mDivideAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.DivideAssign(leftCasted, rightCasted, mDivideAssignMethod);
             }
         }
 
         [JavascriptType("modulo")]
-        public virtual System.Linq.Expressions.BinaryExpression Modulo(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression Modulo(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.Modulo(left, right);
+                return Expression.Modulo(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.Modulo(leftCasted, rightCasted, this.mModuloMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.Modulo(leftCasted, rightCasted, mModuloMethod);
             }
         }
 
         [JavascriptType("moduloAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression ModuloAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression ModuloAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.ModuloAssign(left, right);
+                return Expression.ModuloAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.ModuloAssign(leftCasted, rightCasted, this.mModuloAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.ModuloAssign(leftCasted, rightCasted, mModuloAssignMethod);
             }
         }
 
         [JavascriptType("multiply")]
-        public virtual System.Linq.Expressions.BinaryExpression Multiply(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression Multiply(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.Multiply(left, right);
+                return Expression.Multiply(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.Multiply(leftCasted, rightCasted, this.mMultiplyMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.Multiply(leftCasted, rightCasted, mMultiplyMethod);
             }
         }
 
         [JavascriptType("multiplyAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression MultiplyAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression MultiplyAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.MultiplyAssign(left, right);
+                return Expression.MultiplyAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.MultiplyAssign(leftCasted, rightCasted, this.mMultiplyAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.MultiplyAssign(leftCasted, rightCasted, mMultiplyAssignMethod);
             }
         }
 
         [JavascriptType("multiplyAssignChecked")]
-        public virtual System.Linq.Expressions.BinaryExpression MultiplyAssignChecked(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression MultiplyAssignChecked(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.MultiplyAssignChecked(left, right);
+                return Expression.MultiplyAssignChecked(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.MultiplyAssignChecked(leftCasted, rightCasted, this.mMultiplyAssignCheckedMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.MultiplyAssignChecked(leftCasted, rightCasted, mMultiplyAssignCheckedMethod);
             }
         }
 
         [JavascriptType("multiplyChecked")]
-        public virtual System.Linq.Expressions.BinaryExpression MultiplyChecked(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression MultiplyChecked(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.MultiplyChecked(left, right);
+                return Expression.MultiplyChecked(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.MultiplyChecked(leftCasted, rightCasted, this.mMultiplyCheckedMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.MultiplyChecked(leftCasted, rightCasted, mMultiplyCheckedMethod);
             }
         }
 
         [JavascriptType("leftShift")]
-        public virtual System.Linq.Expressions.BinaryExpression LeftShift(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression LeftShift(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.LeftShift(left, right);
+                return Expression.LeftShift(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.LeftShift(leftCasted, rightCasted, this.mLeftShiftMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.LeftShift(leftCasted, rightCasted, mLeftShiftMethod);
             }
         }
 
         [JavascriptType("leftShiftAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression LeftShiftAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression LeftShiftAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.LeftShiftAssign(left, right);
+                return Expression.LeftShiftAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.LeftShiftAssign(leftCasted, rightCasted, this.mLeftShiftAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.LeftShiftAssign(leftCasted, rightCasted, mLeftShiftAssignMethod);
             }
         }
 
         [JavascriptType("rightShift")]
-        public virtual System.Linq.Expressions.BinaryExpression RightShift(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression RightShift(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.RightShift(left, right);
+                return Expression.RightShift(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.RightShift(leftCasted, rightCasted, this.mRightShiftMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.RightShift(leftCasted, rightCasted, mRightShiftMethod);
             }
         }
 
         [JavascriptType("rightShiftAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression RightShiftAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression RightShiftAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.RightShiftAssign(left, right);
+                return Expression.RightShiftAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.RightShiftAssign(leftCasted, rightCasted, this.mRightShiftAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.RightShiftAssign(leftCasted, rightCasted, mRightShiftAssignMethod);
             }
         }
 
         [JavascriptType("and")]
-        public virtual System.Linq.Expressions.BinaryExpression And(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression And(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.And(left, right);
+                return Expression.And(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.And(leftCasted, rightCasted, this.mAndMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.And(leftCasted, rightCasted, mAndMethod);
             }
         }
 
         [JavascriptType("andAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression AndAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression AndAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.AndAssign(left, right);
+                return Expression.AndAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.AndAssign(leftCasted, rightCasted, this.mAndAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.AndAssign(leftCasted, rightCasted, mAndAssignMethod);
             }
         }
 
         [JavascriptType("or")]
-        public virtual System.Linq.Expressions.BinaryExpression Or(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression Or(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.Or(left, right);
+                return Expression.Or(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.Or(leftCasted, rightCasted, this.mOrMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.Or(leftCasted, rightCasted, mOrMethod);
             }
         }
 
         [JavascriptType("orAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression OrAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression OrAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.OrAssign(left, right);
+                return Expression.OrAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.OrAssign(leftCasted, rightCasted, this.mOrAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.OrAssign(leftCasted, rightCasted, mOrAssignMethod);
             }
         }
 
         [JavascriptType("exclusiveOr")]
-        public virtual System.Linq.Expressions.BinaryExpression ExclusiveOr(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression ExclusiveOr(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.ExclusiveOr(left, right);
+                return Expression.ExclusiveOr(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.ExclusiveOr(leftCasted, rightCasted, this.mExclusiveOrMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.ExclusiveOr(leftCasted, rightCasted, mExclusiveOrMethod);
             }
         }
 
         [JavascriptType("exclusiveOrAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression ExclusiveOrAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression ExclusiveOrAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.ExclusiveOrAssign(left, right);
+                return Expression.ExclusiveOrAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.ExclusiveOrAssign(leftCasted, rightCasted, this.mExclusiveOrAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.ExclusiveOrAssign(leftCasted, rightCasted, mExclusiveOrAssignMethod);
             }
         }
 
         [JavascriptType("power")]
-        public virtual System.Linq.Expressions.BinaryExpression Power(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression Power(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.Power(left, right);
+                return Expression.Power(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.Power(leftCasted, rightCasted, this.mPowerMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.Power(leftCasted, rightCasted, mPowerMethod);
             }
         }
 
         [JavascriptType("powerAssign")]
-        public virtual System.Linq.Expressions.BinaryExpression PowerAssign(System.Linq.Expressions.Expression left, System.Linq.Expressions.Expression right)
+        public virtual BinaryExpression PowerAssign(Expression left, Expression right)
         {
             if ((left.Type == right.Type))
             {
-                return System.Linq.Expressions.Expression.PowerAssign(left, right);
+                return Expression.PowerAssign(left, right);
             }
             else
             {
-                System.Linq.Expressions.Expression leftCasted = System.Linq.Expressions.Expression.Convert(left, typeof(object));
-                System.Linq.Expressions.Expression rightCasted = System.Linq.Expressions.Expression.Convert(right, typeof(object));
-                return System.Linq.Expressions.Expression.PowerAssign(leftCasted, rightCasted, this.mPowerAssignMethod);
+                Expression leftCasted = Expression.Convert(left, typeof (object));
+                Expression rightCasted = Expression.Convert(right, typeof (object));
+                return Expression.PowerAssign(leftCasted, rightCasted, mPowerAssignMethod);
             }
         }
 
         [JavascriptType("arrayIndex")]
-        public virtual System.Linq.Expressions.BinaryExpression ArrayIndex(System.Linq.Expressions.Expression array, System.Linq.Expressions.Expression index)
+        public virtual BinaryExpression ArrayIndex(Expression array, Expression index)
         {
-            return System.Linq.Expressions.Expression.ArrayIndex(array, index);
+            return Expression.ArrayIndex(array, index);
         }
 
         [JavascriptType("block2x1")]
-        public virtual System.Linq.Expressions.BlockExpression Block(System.Linq.Expressions.Expression arg0, System.Linq.Expressions.Expression arg1)
+        public virtual BlockExpression Block(Expression arg0, Expression arg1)
         {
-            return System.Linq.Expressions.Expression.Block(arg0, arg1);
+            return Expression.Block(arg0, arg1);
         }
 
         [JavascriptType("block2x2")]
-        public virtual System.Linq.Expressions.BlockExpression Block(System.Type type, System.Linq.Expressions.Expression[] expressions)
+        public virtual BlockExpression Block(Type type, Expression[] expressions)
         {
-            return System.Linq.Expressions.Expression.Block(type, expressions);
+            return Expression.Block(type, expressions);
         }
 
         [JavascriptType("block2x3")]
-        public virtual System.Linq.Expressions.BlockExpression Block(System.Collections.Generic.IEnumerable<System.Linq.Expressions.ParameterExpression> variables, System.Linq.Expressions.Expression[] expressions)
+        public virtual BlockExpression Block(IEnumerable<ParameterExpression> variables, Expression[] expressions)
         {
-            return System.Linq.Expressions.Expression.Block(variables, expressions);
+            return Expression.Block(variables, expressions);
         }
 
         [JavascriptType("block3x1")]
-        public virtual System.Linq.Expressions.BlockExpression Block(System.Linq.Expressions.Expression arg0, System.Linq.Expressions.Expression arg1, System.Linq.Expressions.Expression arg2)
+        public virtual BlockExpression Block(Expression arg0, Expression arg1, Expression arg2)
         {
-            return System.Linq.Expressions.Expression.Block(arg0, arg1, arg2);
+            return Expression.Block(arg0, arg1, arg2);
         }
 
         [JavascriptType("block3x2")]
-        public virtual System.Linq.Expressions.BlockExpression Block(System.Type type, System.Collections.Generic.IEnumerable<System.Linq.Expressions.ParameterExpression> variables, System.Linq.Expressions.Expression[] expressions)
+        public virtual BlockExpression Block(Type type, IEnumerable<ParameterExpression> variables,
+                                             Expression[] expressions)
         {
-            return System.Linq.Expressions.Expression.Block(type, variables, expressions);
+            return Expression.Block(type, variables, expressions);
         }
 
         [JavascriptType("block4")]
-        public virtual System.Linq.Expressions.BlockExpression Block(System.Linq.Expressions.Expression arg0, System.Linq.Expressions.Expression arg1, System.Linq.Expressions.Expression arg2, System.Linq.Expressions.Expression arg3)
+        public virtual BlockExpression Block(Expression arg0, Expression arg1, Expression arg2, Expression arg3)
         {
-            return System.Linq.Expressions.Expression.Block(arg0, arg1, arg2, arg3);
+            return Expression.Block(arg0, arg1, arg2, arg3);
         }
 
         [JavascriptType("block5")]
-        public virtual System.Linq.Expressions.BlockExpression Block(System.Linq.Expressions.Expression arg0, System.Linq.Expressions.Expression arg1, System.Linq.Expressions.Expression arg2, System.Linq.Expressions.Expression arg3, System.Linq.Expressions.Expression arg4)
+        public virtual BlockExpression Block(Expression arg0, Expression arg1, Expression arg2, Expression arg3,
+                                             Expression arg4)
         {
-            return System.Linq.Expressions.Expression.Block(arg0, arg1, arg2, arg3, arg4);
+            return Expression.Block(arg0, arg1, arg2, arg3, arg4);
         }
 
         [JavascriptType("block1")]
-        public virtual System.Linq.Expressions.BlockExpression Block(System.Linq.Expressions.Expression[] expressions)
+        public virtual BlockExpression Block(Expression[] expressions)
         {
-            return System.Linq.Expressions.Expression.Block(expressions);
+            return Expression.Block(expressions);
         }
 
         [JavascriptType("condition3")]
-        public virtual System.Linq.Expressions.ConditionalExpression Condition(System.Linq.Expressions.Expression test, System.Linq.Expressions.Expression ifTrue, System.Linq.Expressions.Expression ifFalse)
+        public virtual ConditionalExpression Condition(Expression test, Expression ifTrue, Expression ifFalse)
         {
-            return System.Linq.Expressions.Expression.Condition(test, ifTrue, ifFalse);
+            return Expression.Condition(test, ifTrue, ifFalse);
         }
 
         [JavascriptType("condition4")]
-        public virtual System.Linq.Expressions.ConditionalExpression Condition(System.Linq.Expressions.Expression test, System.Linq.Expressions.Expression ifTrue, System.Linq.Expressions.Expression ifFalse, System.Type type)
+        public virtual ConditionalExpression Condition(Expression test, Expression ifTrue, Expression ifFalse, Type type)
         {
-            return System.Linq.Expressions.Expression.Condition(test, ifTrue, ifFalse, type);
+            return Expression.Condition(test, ifTrue, ifFalse, type);
         }
 
         [JavascriptType("ifThen")]
-        public virtual System.Linq.Expressions.ConditionalExpression IfThen(System.Linq.Expressions.Expression test, System.Linq.Expressions.Expression ifTrue)
+        public virtual ConditionalExpression IfThen(Expression test, Expression ifTrue)
         {
-            return System.Linq.Expressions.Expression.IfThen(test, ifTrue);
+            return Expression.IfThen(test, ifTrue);
         }
 
         [JavascriptType("ifThenElse")]
-        public virtual System.Linq.Expressions.ConditionalExpression IfThenElse(System.Linq.Expressions.Expression test, System.Linq.Expressions.Expression ifTrue, System.Linq.Expressions.Expression ifFalse)
+        public virtual ConditionalExpression IfThenElse(Expression test, Expression ifTrue, Expression ifFalse)
         {
-            return System.Linq.Expressions.Expression.IfThenElse(test, ifTrue, ifFalse);
+            return Expression.IfThenElse(test, ifTrue, ifFalse);
         }
 
         [JavascriptType("constant1")]
-        public virtual System.Linq.Expressions.ConstantExpression Constant(object value)
+        public virtual ConstantExpression Constant(object value)
         {
-            return System.Linq.Expressions.Expression.Constant(value);
+            return Expression.Constant(value);
         }
 
         [JavascriptType("constant2")]
-        public virtual System.Linq.Expressions.ConstantExpression Constant(object value, System.Type type)
+        public virtual ConstantExpression Constant(object value, Type type)
         {
-            return System.Linq.Expressions.Expression.Constant(value, type);
+            return Expression.Constant(value, type);
         }
 
         [JavascriptType("empty")]
-        public virtual System.Linq.Expressions.DefaultExpression Empty()
+        public virtual DefaultExpression Empty()
         {
-            return System.Linq.Expressions.Expression.Empty();
+            return Expression.Empty();
         }
 
         [JavascriptType("default1")]
-        public virtual System.Linq.Expressions.DefaultExpression Default(System.Type type)
+        public virtual DefaultExpression Default(Type type)
         {
-            return System.Linq.Expressions.Expression.Default(type);
+            return Expression.Default(type);
         }
 
         [JavascriptType("arrayAccess")]
-        public virtual System.Linq.Expressions.IndexExpression ArrayAccess(System.Linq.Expressions.Expression array, System.Linq.Expressions.Expression[] indexes)
+        public virtual IndexExpression ArrayAccess(Expression array, Expression[] indexes)
         {
-            return System.Linq.Expressions.Expression.ArrayAccess(array, indexes);
+            return Expression.ArrayAccess(array, indexes);
         }
 
         [JavascriptType("property3x1")]
-        public virtual System.Linq.Expressions.IndexExpression Property(System.Linq.Expressions.Expression instance, string propertyName, System.Linq.Expressions.Expression[] arguments)
+        public virtual IndexExpression Property(Expression instance, string propertyName, Expression[] arguments)
         {
-            return System.Linq.Expressions.Expression.Property(instance, propertyName, arguments);
+            return Expression.Property(instance, propertyName, arguments);
         }
 
         [JavascriptType("property3x2")]
-        public virtual System.Linq.Expressions.MemberExpression Property(System.Linq.Expressions.Expression expression, System.Type type, string propertyName)
+        public virtual MemberExpression Property(Expression expression, Type type, string propertyName)
         {
-            return System.Linq.Expressions.Expression.Property(expression, type, propertyName);
+            return Expression.Property(expression, type, propertyName);
         }
 
         [JavascriptType("property2")]
-        public virtual System.Linq.Expressions.MemberExpression Property(System.Linq.Expressions.Expression expression, string propertyName)
+        public virtual MemberExpression Property(Expression expression, string propertyName)
         {
-            return System.Linq.Expressions.Expression.Property(expression, propertyName);
+            return Expression.Property(expression, propertyName);
         }
 
         [JavascriptType("invoke")]
-        public virtual System.Linq.Expressions.InvocationExpression Invoke(System.Linq.Expressions.Expression expression, System.Linq.Expressions.Expression[] arguments)
+        public virtual InvocationExpression Invoke(Expression expression, Expression[] arguments)
         {
-            return System.Linq.Expressions.Expression.Invoke(expression, arguments);
+            return Expression.Invoke(expression, arguments);
         }
 
         [JavascriptType("lambda2")]
-        public virtual System.Linq.Expressions.LambdaExpression Lambda(System.Linq.Expressions.Expression body, System.Linq.Expressions.ParameterExpression[] parameters)
+        public virtual LambdaExpression Lambda(Expression body, ParameterExpression[] parameters)
         {
-            return System.Linq.Expressions.Expression.Lambda(body, parameters);
+            return Expression.Lambda(body, parameters);
         }
 
         [JavascriptType("lambda3x1")]
-        public virtual System.Linq.Expressions.LambdaExpression Lambda(System.Linq.Expressions.Expression body, bool tailCall, System.Linq.Expressions.ParameterExpression[] parameters)
+        public virtual LambdaExpression Lambda(Expression body, bool tailCall, ParameterExpression[] parameters)
         {
-            return System.Linq.Expressions.Expression.Lambda(body, tailCall, parameters);
+            return Expression.Lambda(body, tailCall, parameters);
         }
 
         [JavascriptType("lambda3x2")]
-        public virtual System.Linq.Expressions.LambdaExpression Lambda(System.Type delegateType, System.Linq.Expressions.Expression body, System.Linq.Expressions.ParameterExpression[] parameters)
+        public virtual LambdaExpression Lambda(Type delegateType, Expression body, ParameterExpression[] parameters)
         {
-            return System.Linq.Expressions.Expression.Lambda(delegateType, body, parameters);
+            return Expression.Lambda(delegateType, body, parameters);
         }
 
         [JavascriptType("lambda3x3")]
-        public virtual System.Linq.Expressions.LambdaExpression Lambda(System.Linq.Expressions.Expression body, string name, System.Collections.Generic.IEnumerable<System.Linq.Expressions.ParameterExpression> parameters)
+        public virtual LambdaExpression Lambda(Expression body, string name, IEnumerable<ParameterExpression> parameters)
         {
-            return System.Linq.Expressions.Expression.Lambda(body, name, parameters);
+            return Expression.Lambda(body, name, parameters);
         }
 
         [JavascriptType("lambda4x1")]
-        public virtual System.Linq.Expressions.LambdaExpression Lambda(System.Type delegateType, System.Linq.Expressions.Expression body, bool tailCall, System.Linq.Expressions.ParameterExpression[] parameters)
+        public virtual LambdaExpression Lambda(Type delegateType, Expression body, bool tailCall,
+                                               ParameterExpression[] parameters)
         {
-            return System.Linq.Expressions.Expression.Lambda(delegateType, body, tailCall, parameters);
+            return Expression.Lambda(delegateType, body, tailCall, parameters);
         }
 
         [JavascriptType("lambda4x2")]
-        public virtual System.Linq.Expressions.LambdaExpression Lambda(System.Linq.Expressions.Expression body, string name, bool tailCall, System.Collections.Generic.IEnumerable<System.Linq.Expressions.ParameterExpression> parameters)
+        public virtual LambdaExpression Lambda(Expression body, string name, bool tailCall,
+                                               IEnumerable<ParameterExpression> parameters)
         {
-            return System.Linq.Expressions.Expression.Lambda(body, name, tailCall, parameters);
+            return Expression.Lambda(body, name, tailCall, parameters);
         }
 
         [JavascriptType("lambda4x3")]
-        public virtual System.Linq.Expressions.LambdaExpression Lambda(System.Type delegateType, System.Linq.Expressions.Expression body, string name, System.Collections.Generic.IEnumerable<System.Linq.Expressions.ParameterExpression> parameters)
+        public virtual LambdaExpression Lambda(Type delegateType, Expression body, string name,
+                                               IEnumerable<ParameterExpression> parameters)
         {
-            return System.Linq.Expressions.Expression.Lambda(delegateType, body, name, parameters);
+            return Expression.Lambda(delegateType, body, name, parameters);
         }
 
         [JavascriptType("lambda5")]
-        public virtual System.Linq.Expressions.LambdaExpression Lambda(System.Type delegateType, System.Linq.Expressions.Expression body, string name, bool tailCall, System.Collections.Generic.IEnumerable<System.Linq.Expressions.ParameterExpression> parameters)
+        public virtual LambdaExpression Lambda(Type delegateType, Expression body, string name, bool tailCall,
+                                               IEnumerable<ParameterExpression> parameters)
         {
-            return System.Linq.Expressions.Expression.Lambda(delegateType, body, name, tailCall, parameters);
+            return Expression.Lambda(delegateType, body, name, tailCall, parameters);
         }
 
         [JavascriptType("listInit")]
-        public virtual System.Linq.Expressions.ListInitExpression ListInit(System.Linq.Expressions.NewExpression newExpression, System.Linq.Expressions.Expression[] initializers)
+        public virtual ListInitExpression ListInit(NewExpression newExpression, Expression[] initializers)
         {
-            return System.Linq.Expressions.Expression.ListInit(newExpression, initializers);
+            return Expression.ListInit(newExpression, initializers);
         }
 
         [JavascriptType("loop")]
-        public virtual System.Linq.Expressions.LoopExpression Loop(System.Linq.Expressions.Expression body)
+        public virtual LoopExpression Loop(Expression body)
         {
-            return System.Linq.Expressions.Expression.Loop(body);
+            return Expression.Loop(body);
         }
 
         [JavascriptType("field2")]
-        public virtual System.Linq.Expressions.MemberExpression Field(System.Linq.Expressions.Expression expression, string fieldName)
+        public virtual MemberExpression Field(Expression expression, string fieldName)
         {
-            return System.Linq.Expressions.Expression.Field(expression, fieldName);
+            return Expression.Field(expression, fieldName);
         }
 
         [JavascriptType("field3")]
-        public virtual System.Linq.Expressions.MemberExpression Field(System.Linq.Expressions.Expression expression, System.Type type, string fieldName)
+        public virtual MemberExpression Field(Expression expression, Type type, string fieldName)
         {
-            return System.Linq.Expressions.Expression.Field(expression, type, fieldName);
+            return Expression.Field(expression, type, fieldName);
         }
 
         [JavascriptType("propertyOrField")]
-        public virtual System.Linq.Expressions.MemberExpression PropertyOrField(System.Linq.Expressions.Expression expression, string propertyOrFieldName)
+        public virtual MemberExpression PropertyOrField(Expression expression, string propertyOrFieldName)
         {
-            return System.Linq.Expressions.Expression.PropertyOrField(expression, propertyOrFieldName);
+            return Expression.PropertyOrField(expression, propertyOrFieldName);
         }
 
         [JavascriptType("call4x1")]
-        public virtual System.Linq.Expressions.MethodCallExpression Call(System.Linq.Expressions.Expression instance, string methodName, System.Type[] typeArguments, System.Linq.Expressions.Expression[] arguments)
+        public virtual MethodCallExpression Call(Expression instance, string methodName, Type[] typeArguments,
+                                                 Expression[] arguments)
         {
-            return System.Linq.Expressions.Expression.Call(instance, methodName, typeArguments, arguments);
+            return Expression.Call(instance, methodName, typeArguments, arguments);
         }
 
         [JavascriptType("call4x2")]
-        public virtual System.Linq.Expressions.MethodCallExpression Call(System.Type type, string methodName, System.Type[] typeArguments, System.Linq.Expressions.Expression[] arguments)
+        public virtual MethodCallExpression Call(Type type, string methodName, Type[] typeArguments,
+                                                 Expression[] arguments)
         {
-            return System.Linq.Expressions.Expression.Call(type, methodName, typeArguments, arguments);
+            return Expression.Call(type, methodName, typeArguments, arguments);
         }
 
         [JavascriptType("newArrayInit")]
-        public virtual System.Linq.Expressions.NewArrayExpression NewArrayInit(System.Type type, System.Linq.Expressions.Expression[] initializers)
+        public virtual NewArrayExpression NewArrayInit(Type type, Expression[] initializers)
         {
-            return System.Linq.Expressions.Expression.NewArrayInit(type, initializers);
+            return Expression.NewArrayInit(type, initializers);
         }
 
         [JavascriptType("newArrayBounds")]
-        public virtual System.Linq.Expressions.NewArrayExpression NewArrayBounds(System.Type type, System.Linq.Expressions.Expression[] bounds)
+        public virtual NewArrayExpression NewArrayBounds(Type type, Expression[] bounds)
         {
-            return System.Linq.Expressions.Expression.NewArrayBounds(type, bounds);
+            return Expression.NewArrayBounds(type, bounds);
         }
 
         [JavascriptType("new1")]
-        public virtual System.Linq.Expressions.NewExpression New(System.Type type)
+        public virtual NewExpression New(Type type)
         {
-            return System.Linq.Expressions.Expression.New(type);
+            return Expression.New(type);
         }
 
         [JavascriptType("parameter1")]
-        public virtual System.Linq.Expressions.ParameterExpression Parameter(System.Type type)
+        public virtual ParameterExpression Parameter(Type type)
         {
-            return System.Linq.Expressions.Expression.Parameter(type);
+            return Expression.Parameter(type);
         }
 
         [JavascriptType("parameter2")]
-        public virtual System.Linq.Expressions.ParameterExpression Parameter(System.Type type, string name)
+        public virtual ParameterExpression Parameter(Type type, string name)
         {
-            return System.Linq.Expressions.Expression.Parameter(type, name);
+            return Expression.Parameter(type, name);
         }
 
         [JavascriptType("variable1")]
-        public virtual System.Linq.Expressions.ParameterExpression Variable(System.Type type)
+        public virtual ParameterExpression Variable(Type type)
         {
-            return System.Linq.Expressions.Expression.Variable(type);
+            return Expression.Variable(type);
         }
 
         [JavascriptType("variable2")]
-        public virtual System.Linq.Expressions.ParameterExpression Variable(System.Type type, string name)
+        public virtual ParameterExpression Variable(Type type, string name)
         {
-            return System.Linq.Expressions.Expression.Variable(type, name);
+            return Expression.Variable(type, name);
         }
 
         [JavascriptType("runtimeVariables")]
-        public virtual System.Linq.Expressions.RuntimeVariablesExpression RuntimeVariables(System.Linq.Expressions.ParameterExpression[] variables)
+        public virtual RuntimeVariablesExpression RuntimeVariables(ParameterExpression[] variables)
         {
-            return System.Linq.Expressions.Expression.RuntimeVariables(variables);
+            return Expression.RuntimeVariables(variables);
         }
 
         [JavascriptType("tryFault")]
-        public virtual System.Linq.Expressions.TryExpression TryFault(System.Linq.Expressions.Expression body, System.Linq.Expressions.Expression fault)
+        public virtual TryExpression TryFault(Expression body, Expression fault)
         {
-            return System.Linq.Expressions.Expression.TryFault(body, fault);
+            return Expression.TryFault(body, fault);
         }
 
         [JavascriptType("tryFinally")]
-        public virtual System.Linq.Expressions.TryExpression TryFinally(System.Linq.Expressions.Expression body, System.Linq.Expressions.Expression @finally)
+        public virtual TryExpression TryFinally(Expression body, Expression @finally)
         {
-            return System.Linq.Expressions.Expression.TryFinally(body, @finally);
+            return Expression.TryFinally(body, @finally);
         }
 
         [JavascriptType("typeIs")]
-        public virtual System.Linq.Expressions.TypeBinaryExpression TypeIs(System.Linq.Expressions.Expression expression, System.Type type)
+        public virtual TypeBinaryExpression TypeIs(Expression expression, Type type)
         {
-            return System.Linq.Expressions.Expression.TypeIs(expression, type);
+            return Expression.TypeIs(expression, type);
         }
 
         [JavascriptType("typeEqual")]
-        public virtual System.Linq.Expressions.TypeBinaryExpression TypeEqual(System.Linq.Expressions.Expression expression, System.Type type)
+        public virtual TypeBinaryExpression TypeEqual(Expression expression, Type type)
         {
-            return System.Linq.Expressions.Expression.TypeEqual(expression, type);
+            return Expression.TypeEqual(expression, type);
         }
 
         [JavascriptType("negate")]
-        public virtual System.Linq.Expressions.UnaryExpression Negate(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression Negate(Expression expression)
         {
-            return System.Linq.Expressions.Expression.Negate(expression);
+            return Expression.Negate(expression);
         }
 
         [JavascriptType("unaryPlus")]
-        public virtual System.Linq.Expressions.UnaryExpression UnaryPlus(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression UnaryPlus(Expression expression)
         {
-            return System.Linq.Expressions.Expression.UnaryPlus(expression);
+            return Expression.UnaryPlus(expression);
         }
 
         [JavascriptType("negateChecked")]
-        public virtual System.Linq.Expressions.UnaryExpression NegateChecked(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression NegateChecked(Expression expression)
         {
-            return System.Linq.Expressions.Expression.NegateChecked(expression);
+            return Expression.NegateChecked(expression);
         }
 
         [JavascriptType("not")]
-        public virtual System.Linq.Expressions.UnaryExpression Not(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression Not(Expression expression)
         {
-            return System.Linq.Expressions.Expression.Not(expression);
+            return Expression.Not(expression);
         }
 
         [JavascriptType("isFalse")]
-        public virtual System.Linq.Expressions.UnaryExpression IsFalse(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression IsFalse(Expression expression)
         {
-            return System.Linq.Expressions.Expression.IsFalse(expression);
+            return Expression.IsFalse(expression);
         }
 
         [JavascriptType("isTrue")]
-        public virtual System.Linq.Expressions.UnaryExpression IsTrue(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression IsTrue(Expression expression)
         {
-            return System.Linq.Expressions.Expression.IsTrue(expression);
+            return Expression.IsTrue(expression);
         }
 
         [JavascriptType("onesComplement")]
-        public virtual System.Linq.Expressions.UnaryExpression OnesComplement(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression OnesComplement(Expression expression)
         {
-            return System.Linq.Expressions.Expression.OnesComplement(expression);
+            return Expression.OnesComplement(expression);
         }
 
         [JavascriptType("typeAs")]
-        public virtual System.Linq.Expressions.UnaryExpression TypeAs(System.Linq.Expressions.Expression expression, System.Type type)
+        public virtual UnaryExpression TypeAs(Expression expression, Type type)
         {
-            return System.Linq.Expressions.Expression.TypeAs(expression, type);
+            return Expression.TypeAs(expression, type);
         }
 
         [JavascriptType("unbox")]
-        public virtual System.Linq.Expressions.UnaryExpression Unbox(System.Linq.Expressions.Expression expression, System.Type type)
+        public virtual UnaryExpression Unbox(Expression expression, Type type)
         {
-            return System.Linq.Expressions.Expression.Unbox(expression, type);
+            return Expression.Unbox(expression, type);
         }
 
         [JavascriptType("convert")]
-        public virtual System.Linq.Expressions.UnaryExpression Convert(System.Linq.Expressions.Expression expression, System.Type type)
+        public virtual UnaryExpression Convert(Expression expression, Type type)
         {
-            return System.Linq.Expressions.Expression.Convert(expression, type);
+            return Expression.Convert(expression, type);
         }
 
         [JavascriptType("convertChecked")]
-        public virtual System.Linq.Expressions.UnaryExpression ConvertChecked(System.Linq.Expressions.Expression expression, System.Type type)
+        public virtual UnaryExpression ConvertChecked(Expression expression, Type type)
         {
-            return System.Linq.Expressions.Expression.ConvertChecked(expression, type);
+            return Expression.ConvertChecked(expression, type);
         }
 
         [JavascriptType("arrayLength")]
-        public virtual System.Linq.Expressions.UnaryExpression ArrayLength(System.Linq.Expressions.Expression array)
+        public virtual UnaryExpression ArrayLength(Expression array)
         {
-            return System.Linq.Expressions.Expression.ArrayLength(array);
+            return Expression.ArrayLength(array);
         }
 
         [JavascriptType("quote")]
-        public virtual System.Linq.Expressions.UnaryExpression Quote(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression Quote(Expression expression)
         {
-            return System.Linq.Expressions.Expression.Quote(expression);
+            return Expression.Quote(expression);
         }
 
         [JavascriptType("rethrow0")]
-        public virtual System.Linq.Expressions.UnaryExpression Rethrow()
+        public virtual UnaryExpression Rethrow()
         {
-            return System.Linq.Expressions.Expression.Rethrow();
+            return Expression.Rethrow();
         }
 
         [JavascriptType("rethrow1")]
-        public virtual System.Linq.Expressions.UnaryExpression Rethrow(System.Type type)
+        public virtual UnaryExpression Rethrow(Type type)
         {
-            return System.Linq.Expressions.Expression.Rethrow(type);
+            return Expression.Rethrow(type);
         }
 
         [JavascriptType("throw1")]
-        public virtual System.Linq.Expressions.UnaryExpression Throw(System.Linq.Expressions.Expression value)
+        public virtual UnaryExpression Throw(Expression value)
         {
-            return System.Linq.Expressions.Expression.Throw(value);
+            return Expression.Throw(value);
         }
 
         [JavascriptType("throw2")]
-        public virtual System.Linq.Expressions.UnaryExpression Throw(System.Linq.Expressions.Expression value, System.Type type)
+        public virtual UnaryExpression Throw(Expression value, Type type)
         {
-            return System.Linq.Expressions.Expression.Throw(value, type);
+            return Expression.Throw(value, type);
         }
 
         [JavascriptType("increment")]
-        public virtual System.Linq.Expressions.UnaryExpression Increment(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression Increment(Expression expression)
         {
-            return System.Linq.Expressions.Expression.Increment(expression);
+            return Expression.Increment(expression);
         }
 
         [JavascriptType("decrement")]
-        public virtual System.Linq.Expressions.UnaryExpression Decrement(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression Decrement(Expression expression)
         {
-            return System.Linq.Expressions.Expression.Decrement(expression);
+            return Expression.Decrement(expression);
         }
 
         [JavascriptType("preIncrementAssign")]
-        public virtual System.Linq.Expressions.UnaryExpression PreIncrementAssign(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression PreIncrementAssign(Expression expression)
         {
-            return System.Linq.Expressions.Expression.PreIncrementAssign(expression);
+            return Expression.PreIncrementAssign(expression);
         }
 
         [JavascriptType("preDecrementAssign")]
-        public virtual System.Linq.Expressions.UnaryExpression PreDecrementAssign(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression PreDecrementAssign(Expression expression)
         {
-            return System.Linq.Expressions.Expression.PreDecrementAssign(expression);
+            return Expression.PreDecrementAssign(expression);
         }
 
         [JavascriptType("postIncrementAssign")]
-        public virtual System.Linq.Expressions.UnaryExpression PostIncrementAssign(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression PostIncrementAssign(Expression expression)
         {
-            return System.Linq.Expressions.Expression.PostIncrementAssign(expression);
+            return Expression.PostIncrementAssign(expression);
         }
 
         [JavascriptType("postDecrementAssign")]
-        public virtual System.Linq.Expressions.UnaryExpression PostDecrementAssign(System.Linq.Expressions.Expression expression)
+        public virtual UnaryExpression PostDecrementAssign(Expression expression)
         {
-            return System.Linq.Expressions.Expression.PostDecrementAssign(expression);
+            return Expression.PostDecrementAssign(expression);
         }
     }
 }
