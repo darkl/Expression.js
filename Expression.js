@@ -937,6 +937,12 @@ function invoke(expression, theArguments) {
 invoke.prototype = Object.create(invocationExpression.prototype);
 invoke.prototype.constructor = invoke;
 
+function reusedParameter(name) {
+    this.name = name;
+}
+reusedParameter.prototype = Object.create(parameterExpression.prototype);
+reusedParameter.prototype.constructor = reusedParameter;
+
 expression.add = function () {
     if (arguments.length == 2) {
         if ((arguments[0] instanceof expression) && (arguments[1] instanceof expression)) {
@@ -2455,6 +2461,14 @@ expression.prototype.unbox = function () {
     if (arguments.length == 1) {
         if ((arguments[0] instanceof runtimeType)) {
             return new unbox(self, arguments[0]);
+        }
+    }
+};
+
+expression.reusedParameter = function () {
+    if (arguments.length == 1) {
+        if ((typeof arguments[0] == "string")) {
+            return new reusedParameter(arguments[0]);
         }
     }
 };

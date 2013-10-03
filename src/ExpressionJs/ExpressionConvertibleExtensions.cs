@@ -7,7 +7,7 @@ namespace ExpressionJs
     public static class ExpressionConvertibleExtensions
     {
         public static TExpression[] Unpack<TExpression>(this IExpressionConvertible<TExpression>[] pack,
-            ExpressionBuilder builder)
+                                                        ExpressionBuilder builder)
             where TExpression : Expression
         {
             return pack.Select(x => x.GetExpression(builder)).

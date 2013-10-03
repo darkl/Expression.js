@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace ExpressionJs
 {
@@ -12,11 +11,12 @@ namespace ExpressionJs
             throw new NotImplementedException();
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+                                        JsonSerializer serializer)
         {
-            ExpressionBuilder expressionBuilder = new ExpressionBuilder();
+            var expressionBuilder = new ExpressionBuilder();
 
-            IExpressionConvertible<Expression> convertible = 
+            var convertible =
                 serializer.Deserialize<IExpressionConvertible<Expression>>(reader);
 
             Expression result =

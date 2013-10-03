@@ -165,9 +165,11 @@
     <Compile Include="Expressions\Variable2.cs" />
     <Compile Include="IExpressionConvertible.cs" />
     <Compile Include="JavascriptTypeAttribute.cs" />
+    <Compile Include="MethodCalls\ReusedParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MethodCalls\ExpressionBuilder.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
